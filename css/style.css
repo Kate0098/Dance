@@ -21,7 +21,7 @@ p {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     width: 100%;
 }
@@ -53,7 +53,7 @@ p {
 
 .menu .custom-list {
     display: flex;
-    gap: 43px;
+    gap: 74px;
     list-style-type: none;
 }
 
@@ -84,9 +84,6 @@ p {
     color: white;
 }
 
-.main {
-
-}
 
 .info {
     display: flex;
@@ -103,7 +100,7 @@ p {
     position: absolute;
     z-index: -1;
     opacity: 30%;
-    width: 100%;
+    width: 80%;
 }
 
 .info h2 {
@@ -113,9 +110,65 @@ p {
 
 .info p {
     font-size: 25px;
-    margin-top: 10px;
+    margin: 10px 0 130px;
     color: #8d7750;
     text-align: center;
+}
+
+
+
+.application {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 40px 0;
+}
+
+.text-application {
+    padding: 0 32px;
+}
+
+
+.text-application h4 {
+    padding: 0 0 40px;
+    font-weight: 300;
+    font-size: 50px;
+    font-family: Playfair Display, serif;
+    text-align: center;
+}
+
+.text-application::before,
+.text-application::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 50%;
+    background: #978157;
+}
+
+.text-application::before {
+    right: 100%;
+}
+
+.text-application::after {
+    left: 100%;
+}
+
+.submit-button {
+    width: 100%;
+    border: none;
+    padding: 20px;
+    background: #978157;
+    display: flex;
+    font-weight: 500;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    transition: background 0.3s ease;
 }
 
 .school {
@@ -182,8 +235,8 @@ p {
 
 .card {
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 487px;
+    height: 443px;
     background-color: #978157;
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
@@ -203,7 +256,7 @@ p {
 .card:hover {
     transform: rotateY(calc(-10deg * var(--r)))
     translateX(calc(-300px * var(--r)))
-    scale(1.05); /* Легкое увеличение при наведении */
+    scale(1); /* Легкое увеличение при наведении */
     transition: all 0.25s ease;
 }
 
@@ -235,6 +288,7 @@ p {
 .card:nth-of-type(3) { --offset: 3; padding: 40px 0 0 0;}
 .card:nth-of-type(4) { --offset: 4; padding: 40px 0 0 0;}
 .card:nth-of-type(5) { --offset: 5; padding: 40px 0 0 0;}
+.card:nth-of-type(6) { --offset: 6; padding: 40px 0 0 0;}
 
 
 #slide1:checked ~ .cards { --position: 1; padding: 40px 0 0 0;}
@@ -242,6 +296,7 @@ p {
 #slide3:checked ~ .cards { --position: 3; padding: 40px 0 0 0;}
 #slide4:checked ~ .cards { --position: 4; padding: 40px 0 0 0;}
 #slide5:checked ~ .cards { --position: 5; padding: 40px 0 0 0;}
+#slide6:checked ~ .cards { --position: 6; padding: 40px 0 0 0;}
 
 
 .text {
@@ -308,7 +363,7 @@ p {
 }
 
 .h5 {
-    padding: 0 0 12px 50px;
+    padding: 0 0 31px 50px;
     border-bottom: 3px solid #978157;
     border-left: 3px solid #978157;
 }
@@ -323,53 +378,11 @@ p {
     border-bottom: 3px solid #978157;
 }
 
-.application {
-    margin-top: 80px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.foto-application {
-    width: 100%;
-    max-width: 400px;
-}
-
-.wrapper-application {
-    display: flex;
-    flex-direction: column;
-    padding: 170px 80px 0 0 ;
-}
-
-.text-application {
-    width: 100%;
-    border: 1px solid #978157;
-    padding: 30px 40px 40px;
-}
-
-.text-application h4 {
-    padding: 0 0 40px;
-    font-weight: 300;
-    font-size: 50px;
-    font-family: Playfair Display, serif;
-}
-
-form {
-    width: 100%;
+.hh-9 {
+    padding: 0 0 36px 50px;
 }
 
 .from-fields {
-}
-
-.submit-button {
-    width: 100%;
-    border: none;
-    padding: 20px;
-    background: #978157;
-    display: flex;
-    cursor: pointer;
-    font-size: 18px;
-    text-decoration: none;
-    color: black;
 }
 
 input[type="submit"]:hover {
@@ -397,6 +410,7 @@ input[type="submit"]:hover {
 .wrapper-advantages {
     display: flex;
     flex-wrap: wrap;
+    justify-content: end;
     gap: 24px;
     margin-top: 25px;
 }
@@ -416,10 +430,7 @@ input[type="submit"]:hover {
 .foto-ddd{
     width: 100%;
     max-width: 412px;
-    position: absolute;
-    right: -81px;
-    top: -165px;
-    z-index: -1;
+    right: 0;
 }
 
 .pic-area {
@@ -643,7 +654,7 @@ input[type="submit"]:hover {
 .wrapper-animators {
      display: flex;
      flex-direction: column;
-     gap: 20px;
+     gap: 40px;
      text-align: center;
  }
 
@@ -660,6 +671,12 @@ input[type="submit"]:hover {
     justify-content: space-between;
 }
 
+.wrapper-price-animators3 {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
 .one-1 span {
 padding: 5px;
 }
@@ -673,7 +690,7 @@ padding: 5px;
 }
 
 .wrapper-animators .one {
-    padding: 74px 0 70px 0;
+    padding: 15px 0 15px 0;
     border: 1px solid rgb(153, 153, 153);
     border-right: none;
 
@@ -683,20 +700,19 @@ padding: 5px;
     padding: 43px 0 43px 0;
     border: 1px solid rgb(153, 153, 153);
     border-right: none;
-    margin-top: 20px;
 }
 
 .wrapper-animators .three {
     padding: 119px 0 119px 0;
     border: 1px solid rgb(153, 153, 153);
     border-right: none;
-    margin-top: 20px;
 }
 
 .wrapper-prices-animators {
     display: flex;
     flex-direction: column;
     text-align: center;
+    gap: 40px;
 }
 
 .wrapper-prices-animators span {
@@ -714,7 +730,6 @@ padding: 5px;
 .wrapper-prices-animators .two-2 {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
     border: 1px solid rgb(153, 153, 153);
     border-left: none;
     border-right: none
@@ -723,7 +738,6 @@ padding: 5px;
 .wrapper-prices-animators .three-3 {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
     border: 1px solid rgb(153, 153, 153);
     border-left: none;
     border-right: none;
@@ -741,7 +755,6 @@ padding: 5px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 40px;
     border: 1px solid rgb(153, 153, 153);
     border-left: none;
 }
@@ -750,7 +763,6 @@ padding: 5px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 40px;
     border: 1px solid rgb(153, 153, 153);
     border-left: none;
 }
@@ -810,7 +822,9 @@ padding: 5px;
 }
 
 @media screen and (max-width: 1024px) {
-
+.foto-ddd {
+    display: none;
+}
 }
 
 @media screen and (max-width: 768px) {
@@ -980,28 +994,14 @@ padding: 5px;
         color: #ADADAD;
     }
 
-    .f1 span {
-        padding: 12px;
-    }
-
-    .f2 span {
-        padding: 9px;
-    }
-
-    .f3 span {
-        padding: 5px;
-    }
-
-    .ff3 span {
-        padding: 5px;
-    }
-
-    .wrapper-price-dances span {
+    .wrapper-price-cars p, span {
         font-size: 15px;
+        padding: 5px;
     }
 
     .price-dances span {
         font-size: 15px;
+        padding: 5px;
     }
 
     .wrapper-cars p {
@@ -1018,7 +1018,7 @@ padding: 5px;
     }
 
     .wrapper-animators .three {
-        padding: 80px 0 88px 0;
+        padding: 84px 0 ;
     }
 
     .price-animators .three span {
@@ -1072,8 +1072,8 @@ padding: 5px;
     }
 
     .card {
-        width: 298px;
-        height: 386px;
+        width: 256px;
+        height: 311px;
         transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-250px * var(--r)));
     }
 
@@ -1082,7 +1082,7 @@ padding: 5px;
     }
 
     .text-cards h4 {
-        padding: 15px 30px 40px;
+        padding: 15px 19px 40px;
         font-size: 30px;
     }
 
@@ -1095,20 +1095,17 @@ padding: 5px;
     .card:nth-of-type(3) {--offset: 3;padding: 0;}
     .card:nth-of-type(4) {--offset: 4;padding: 0;}
     .card:nth-of-type(5) {--offset: 5;padding: 0;}
+    .card:nth-of-type(6) {--offset: 6;padding: 0;}
 
     #slide1:checked ~ .cards {--position: 1;padding: 0;}
     #slide2:checked ~ .cards {--position: 2;padding: 0;}
     #slide3:checked ~ .cards {--position: 3;padding: 0;}
     #slide4:checked ~ .cards {--position: 4;padding: 0;}
     #slide5:checked ~ .cards {--position: 5;padding: 0;}
-
-    .card h4 {
-        padding: 0 25px 40px 40px;
-        font-size: 37px;
-    }
+    #slide6:checked ~ .cards {--position: 6;padding: 0;}
 
     .card p {
-        font-size: 17px;
+        font-size: 12px;
     }
 
     .text {
@@ -1208,25 +1205,31 @@ padding: 5px;
 
     .wrapper-price-animators {
         padding: 0;
+        gap: 10px;
+        line-height: 20px;
+    }
+
+    .wrapper-price-animators3 {
+        gap: 20px;
+    }
+
+    .price-animators .two span {
+        padding: 0;
     }
 
     .wrapper-price {
         padding: 0;
+        gap: 10px;
+    }
+
+    .wrapper-animators .three {
+        padding: 56px 0 ;
     }
 
     .drop-down-lists details {
         border-radius: 16px;
-        border: 1.5px solid #978157;
-    }
-
-}
-
-@media screen and (max-width: 480px) {
-    /* ... другие стили ... */
-
-    /* Только минимальные изменения для прайса "Танцы" */
-    .wrapper-price {
-        gap: 10px;
+        border: 2px solid #978157;
+        font-size: 18px;
     }
 
     .wrapper-price h4 {
@@ -1240,22 +1243,21 @@ padding: 5px;
     .dddances a,
     .ddddances a {
         font-size: 10px;
-        padding: 3px;
-        line-height: 1.2;
+        padding: 3px 0;
+        line-height: 118%;
     }
 
     .wrapper-price-dances span,
     .price-ddances span {
         font-size: 9px;
-        padding: 4px;
-        line-height: 1.2;
+        padding: 4px 0;
+        line-height: 10px;
     }
 
-    /* Уменьшаем отступы между строками */
     .wrapper-dances,
     .wrapper-price-dances,
     .price-ddances {
-        line-height: 1.2;
+        gap: 15px;
     }
 
     /* Автомобили */
@@ -1274,9 +1276,8 @@ padding: 5px;
         padding: 3px;
     }
 
-    /* Аниматоры */
-    .wrapper-price-animators {
-        gap: 10px;
+    .wrapper-prices-animators {
+        gap: 20px;
     }
 
     .wrapper-price-animators h4 {
@@ -1291,42 +1292,45 @@ padding: 5px;
         padding: 3px;
     }
 
+    .wrapper-animators {
+        gap: 20px;
+    }
+
+    .wrapper-animators .two {
+        padding: 18px 0;
+    }
+    
     .price h3 {
         font-size: 41px;
         line-height: 6px;
         padding: 0 0 54px 0;
     }
 
-    .drop-down-lists details {
-        font-size: 18px;
-    }
-
-    .card {
-        width: 356px;
-        height: 311px;
-    }
-
     .o1 span {
-        padding: 6.5px;
+        padding: 0;
     }
 
     .t2 span {
-        padding: 6px 0;
+        padding: 0;
     }
 
     .wrapper-prices-animators .three-3 span {
         font-size: 10px;
-        padding: 0.5px 0;
     }
 
     .price-animators .three span {
-        padding: 0.5px;
         font-size: 9px;
     }
 
     .price-animators .one span {
-        padding: 6.5px 0;
+        padding: 0;
     }
+
+    .wrapper-animators .one {
+        padding: 0;
+        line-height: 14px;
+    }
+
 
     .number-of-dances h4 {
         font-size: 8px;
@@ -1341,11 +1345,11 @@ padding: 5px;
     }
 
     .ff3 span {
-        padding: 3.8px 0;
+        padding: 11% 0;
     }
 
     .f3 span {
-        padding: 3.8px 0;
+        padding: 5% 0;
     }
 }
 
@@ -1358,19 +1362,16 @@ padding: 5px;
         padding: 4px;
     }
 
-    .price-animators .two span {
-        padding: 6px;
-    }
-
     .three.h3 span {
         font-size: 12px;
     }
+    
     .f3 span {
-        padding: 3.6px;
+        padding: 5% 0;
     }
 
     .ff3 span {
-        padding: 3.6px;
+        padding: 11% 0;
     }
 }
 
