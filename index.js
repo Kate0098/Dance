@@ -35,16 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const burgerCheckbox = document.getElementById('burger-checkbox');
     const menuItems = document.querySelectorAll('.menu-item');
 
-    // Закрытие меню при клике на пункт
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
             burgerCheckbox.checked = false;
         });
     });
-
-    // Остальной ваш код для карусели...
-    const cards = document.querySelectorAll('.card');
-    const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
 
     function smoothSwitch(slideId) {
         const radio = document.getElementById(slideId);
