@@ -144,7 +144,7 @@ p {
     position: absolute;
     top: 50%;
     height: 2px;
-    width: 50%;
+    width: 20%;
     background: #978157;
 }
 
@@ -253,10 +253,17 @@ p {
     user-select: none;
 }
 
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+
 .card:hover {
     transform: rotateY(calc(-10deg * var(--r)))
     translateX(calc(-300px * var(--r)))
-    scale(1); /* Легкое увеличение при наведении */
+    scale(1);
     transition: all 0.25s ease;
 }
 
@@ -803,22 +810,20 @@ padding: 5px;
     list-style: none;
 }
 
-/* Для WebKit браузеров (Safari, Chrome на iOS) */
 .drop-down-lists details > summary::-webkit-details-marker {
     display: none;
 }
 
-/* Убираем стандартный маркер в Firefox */
 .drop-down-lists details > summary::marker {
     display: none;
 }
 
 .drop-down-lists details > summary {
-    padding-right: 0; /* Убираем отступ для кастомного плюсика */
+    padding-right: 0;
 }
 
 .drop-down-lists details > summary::after {
-    right: 10px; /* Позиционируем наш кастомный плюсик */
+    right: 10px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1069,6 +1074,9 @@ padding: 5px;
         font-size: 32px;
         padding: 43px 0 0;
         line-height: 0;
+    }
+    .section1 {
+        padding: 60px;
     }
 
     .card {

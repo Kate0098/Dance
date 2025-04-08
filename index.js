@@ -2,23 +2,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.card');
     const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
 
-    // Функция для плавного переключения
     function smoothSwitch(slideId) {
         const radio = document.getElementById(slideId);
         if (radio && !radio.checked) {
-            // Добавляем класс для анимации
             document.querySelector('.cards').classList.add('animating');
 
             radio.checked = true;
 
-            // Удаляем класс после завершения анимации
             setTimeout(() => {
                 document.querySelector('.cards').classList.remove('animating');
-            }, 700); // Должно совпадать с временем transition в CSS
+            }, 700);
         }
     }
 
-    // Обработчики для карточек
     cards.forEach(card => {
         card.addEventListener('click', () => {
             const slideId = card.getAttribute('data-slide');
@@ -26,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Обработчики для радио-кнопок
     radioInputs.forEach(input => {
         input.addEventListener('change', function() {
             if (this.checked) {
