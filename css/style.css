@@ -90,7 +90,7 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 67vh;
     animation: fadeIn 2s ease-in-out;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     position: relative;
