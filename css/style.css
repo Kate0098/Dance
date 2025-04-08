@@ -841,16 +841,7 @@ padding: 5px;
     right: 10px;
 }
 
-@supports (-webkit-touch-callout: none) {
-    .card {
-        -webkit-transform-style: preserve-3d;
-        -webkit-backface-visibility: hidden;
-    }
 
-    .cards {
-        -webkit-perspective: 1000px;
-    }
-}
 
 @media screen and (max-width: 1024px) {
 .foto-ddd {
@@ -1107,7 +1098,7 @@ padding: 5px;
         line-height: 0;
     }
     .section1 {
-        padding: 60px;
+        padding: 60px 0;
     }
 
     .card {
@@ -1482,3 +1473,20 @@ padding: 5px;
 
 }
 
+
+@supports (-webkit-touch-callout: none) {
+    .card {
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        cursor: pointer;
+    }
+
+    .cards {
+        -webkit-perspective: 1200px;
+        perspective: 1200px;
+    }
+
+    .card:active {
+        transform: scale(0.98) !important;
+    }
+}
