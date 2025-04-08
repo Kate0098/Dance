@@ -841,6 +841,17 @@ padding: 5px;
     right: 10px;
 }
 
+@supports (-webkit-touch-callout: none) {
+    .card {
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .cards {
+        -webkit-perspective: 1000px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
 .foto-ddd {
     display: none;
@@ -1082,6 +1093,12 @@ padding: 5px;
 
     .info p {
         font-size: 15px;
+    }
+
+    .info-foto {
+        width: 150%;
+        left: -25%;
+        opacity: 0.5;
     }
 
     .wrapper-carousel h3 {
