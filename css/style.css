@@ -90,10 +90,25 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 91vh;
+    min-height: 100vh;
     animation: fadeIn 2s ease-in-out;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
     font-size: 68px;
+}
+
+.main {
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    position: relative;
+    z-index: 2;
+}
+
+.section1 {
+    overflow: hidden;
 }
 
 .info-foto {
