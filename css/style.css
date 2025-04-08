@@ -1087,9 +1087,7 @@ padding: 5px;
     }
 
     .info-foto {
-        width: 150%;
-        left: -25%;
-        opacity: 0.5;
+        width: 100%;
     }
 
     .wrapper-carousel h3 {
