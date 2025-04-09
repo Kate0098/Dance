@@ -4,11 +4,6 @@
     padding: 0;
 }
 
-* {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-focus-ring-color: transparent;
-    outline: none;
-}
 
 body {
     font-family: Manrope, sans-serif;
@@ -1493,5 +1488,43 @@ padding: 5px;
     .card:active {
         transform: scale(0.98) !important;
     }
+}
+
+a, button, input, textarea, select, details {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a, button, input, textarea, select, details {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.cards {
+    display: flex;
+    transition: transform 0.7s ease;
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 487px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:last-child {
+    margin-right: 0;
 }
 
