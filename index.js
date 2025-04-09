@@ -1,27 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cardsContainer = document.querySelector('.cards');
-    let startX = 0;
+    document.querySelectorAll('.card');
     let isDragging = false;
+    let startX = 0;
+
+    // Устанавливаем начальную позицию
+    cardsContainer.style.setProperty('--position', 3);
 
     // Функция для переключения слайда
-    function switchSlide(slideId) {
-        const radio = document.getElementById(slideId);
-        if (radio && !radio.checked) {
-            radio.checked = true;
-            radio.dispatchEvent(new Event('change', { bubbles: true }));
-        }
+    function switchSlide(index) {
+        cardsContainer.style.setProperty('--position', index);
     }
 
-    // Обработчик кликов для десктопов
+    // Обработка кликов и касаний
     cardsContainer.addEventListener('click', function(e) {
         const card = e.target.closest('.card');
         if (card && !isDragging) {
-            const slideId = card.getAttribute('data-slide');
-            switchSlide(slideId);
+            const index = parseInt(card.getAttribute('data-index'), 10);
+            switchSlide(index);
         }
     });
 
-    // Обработка касаний для iPhone и сенсорных устройств
+    // Обработка касаний для iPhone
     cardsContainer.addEventListener('touchstart', function(e) {
         startX = e.touches[0].clientX;
         isDragging = false;
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     cardsContainer.addEventListener('touchmove', function(e) {
         const moveX = e.touches[0].clientX;
-        if (Math.abs(moveX - startX) > 15) { // Увеличил порог до 15 пикселей
+        if (Math.abs(moveX - startX) > 15) {
             isDragging = true;
         }
     }, { passive: true });
@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
     cardsContainer.addEventListener('touchend', function(e) {
         const card = e.target.closest('.card');
         if (card && !isDragging) {
-            const slideId = card.getAttribute('data-slide');
-            switchSlide(slideId);
+            const index = parseInt(card.getAttribute('data-index'), 10);
+            switchSlide(index);
             card.style.transform = 'scale(0.98)';
             setTimeout(() => card.style.transform = '', 200);
         }
