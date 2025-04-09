@@ -1480,11 +1480,6 @@ padding: 5px;
         cursor: pointer;
     }
 
-    .cards {
-        -webkit-perspective: 1200px;
-        perspective: 1200px;
-    }
-
     .card:active {
         transform: scale(0.98) !important;
     }
