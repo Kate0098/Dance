@@ -1,66 +1,113 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const cardsContainer = document.querySelector('.cards');
     const cards = document.querySelectorAll('.card');
-    let currentPosition = 3; // Начальная позиция (центр)
-    let isDragging = false;
-    let startX = 0;
+    const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
 
-    // Устанавливаем начальную позицию
-    cardsContainer.style.setProperty('--position', currentPosition);
+    function smoothSwitch(slideId) {
+        const radio = document.getElementById(slideId);
+        if (radio && !radio.checked) {
+            document.querySelector('.cards').classList.add('animating');
 
-    // Функция для обновления позиции карусели
-    function updatePosition(newPosition) {
-        const totalCards = cards.length;
-        currentPosition = Math.max(1, Math.min(newPosition, totalCards)); // Ограничение от 1 до 6
-        cardsContainer.style.setProperty('--position', currentPosition);
+            radio.checked = true;
+
+            setTimeout(() => {
+                document.querySelector('.cards').classList.remove('animating');
+            }, 700);
+        }
     }
 
-    // Обработка событий для каждой карточки
     cards.forEach(card => {
-        // Клик (для десктопов)
-        card.addEventListener('click', function() {
-            const cardIndex = parseInt(this.getAttribute('data-index'), 10);
-            if (cardIndex > currentPosition) {
-                updatePosition(currentPosition + 1); // Сдвиг вправо
-            } else if (cardIndex < currentPosition) {
-                updatePosition(currentPosition - 1); // Сдвиг влево
+        card.addEventListener('click', () => {
+            const slideId = card.getAttribute('data-slide');
+            smoothSwitch(slideId);
+        });
+    });
+
+    radioInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            if (this.checked) {
+                smoothSwitch(this.id);
             }
-            this.style.transform = 'scale(0.98)';
-            setTimeout(() => this.style.transform = '', 200);
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerCheckbox = document.getElementById('burger-checkbox');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            burgerCheckbox.checked = false;
+        });
+    });
+
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Фиксируем высоту для мобильных устройств
+    function fixMobileHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+        const infoSection = document.querySelector('.info');
+        if (infoSection) {
+            infoSection.style.minHeight = 'calc(var(--vh, 1vh) * 50)';
+        }
+    }
+
+    // Инициализация высоты
+    fixMobileHeight();
+    window.addEventListener('resize', fixMobileHeight);
+
+    // Функция переключения слайдов
+    function switchSlide(slideId) {
+        const radio = document.getElementById(slideId);
+        if (!radio) return;
+
+        radio.checked = true;
+
+        // Принудительно запускаем событие для мобильных устройств
+        const event = new Event('change', { bubbles: true });
+        radio.dispatchEvent(event);
+
+        if (isIOS) {
+            const event = new Event('change', {
+                bubbles: true,
+                cancelable: true
+            });
+            radio.dispatchEvent(event);
+        }
+    }
+
+    // Обработчики для карточек
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        // Обработчик для клика (десктоп и часть мобильных)
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            const slideId = this.getAttribute('data-slide');
+            switchSlide(slideId);
         });
 
-        // Касание (для iPhone)
-        card.addEventListener('touchstart', function(e) {
-            startX = e.touches[0].clientX;
-            isDragging = false;
-        }, { passive: true });
-
-        card.addEventListener('touchmove', function(e) {
-            const moveX = e.touches[0].clientX;
-            if (Math.abs(moveX - startX) > 15) {
-                isDragging = true;
-            }
-        }, { passive: true });
-
+        // Обработчик для касания (мобильные устройства)
         card.addEventListener('touchend', function(e) {
-            if (!isDragging) {
-                const cardIndex = parseInt(this.getAttribute('data-index'), 10);
-                console.log('Нажата карта:', cardIndex);
-                if (cardIndex > currentPosition) {
-                    updatePosition(currentPosition + 1); // Сдвиг вправо
-                } else if (cardIndex < currentPosition) {
-                    updatePosition(currentPosition - 1); // Сдвиг влево
-                }
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => this.style.transform = '', 200);
-            }
-            isDragging = false;
-        }, { passive: true });
+            e.preventDefault();
+            const slideId = this.getAttribute('data-slide');
+            switchSlide(slideId);
+
+            // Визуальная обратная связь
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        }, { passive: false });
     });
 
     // Бургер-меню
     const burgerCheckbox = document.getElementById('burger-checkbox');
-    document.querySelectorAll('.menu-item').forEach(item => {
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    menuItems.forEach(item => {
         item.addEventListener('click', () => {
             burgerCheckbox.checked = false;
         });

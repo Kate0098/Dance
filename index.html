@@ -1,18 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1., maximum-scale=1.0, user-scalable=no" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+            rel="stylesheet"
+    />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fontawesome.ru/all-icons/" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="./index.js"></script>
     <title>Ансамбль АЗАТ</title>
 </head>
 <body>
+
 <header class="container">
     <nav class="menu">
         <div class="left-side">
@@ -20,10 +25,18 @@
                 <img src="./img/logo.png" alt="logo" />
             </div>
             <ul class="custom-list">
-                <li class="menu-item"><a href="#section1">Главная</a></li>
-                <li class="menu-item"><a href="#section2">Программа обучения</a></li>
-                <li class="menu-item"><a href="#section3">Расписание</a></li>
-                <li class="menu-item"><a href="#section4">Цены</a></li>
+                <li class="menu-item">
+                    <a href="#section1">Главная</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#section2">Программа обучения</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#section3">Расписание</a>
+                </li>
+                <li class="menu-item">
+                    <a href="#section4">Цены</a>
+                </li>
             </ul>
         </div>
         <div class="right-side">
@@ -32,10 +45,26 @@
                 <label for="burger-checkbox" class="burger"></label>
                 <div class="menu-list">
                     <ul class="burger-wrapper">
-                        <li><a href="#section1" class="menu-item"><p>Главная</p></a></li>
-                        <li><a href="#section2" class="menu-item"><p>Программа обучения</p></a></li>
-                        <li><a href="#section3" class="menu-item"><p>Расписание</p></a></li>
-                        <li><a href="#section4" class="menu-item"><p>Цены</p></a></li>
+                        <li>
+                            <a href="#section1" class="menu-item">
+                                <p>Главная</p>
+                            </a>
+                        <li>
+                        <li>
+                            <a href="#section2" class="menu-item">
+                                <p>Программа обучения</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#section3" class="menu-item">
+                                <p>Расписание</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#section4" class="menu-item">
+                                <p>Цены</p>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -50,12 +79,19 @@
             <div class="info">
                 <img src="img/ttt.png" alt="девушка в костюме" class="info-foto" />
                 <h2>Ансамбль Азат</h2>
-                <p>Мы украсим Ваше светлое мероприятие,<br> а также покажем наш профессионализм и <br>зарядим положительными эмоциями!</p>
+                <p>
+                    Мы украсим Ваше светлое мероприятие,<br> а также покажем наш
+                    профессионализм и <br>зарядим положительными эмоциями!
+                </p>
                 <div class="application">
                     <div class="text-application">
                         <h4>БЫСТРАЯ ЗАЯВКА</h4>
                         <div class="action">
-                            <a href="https://t.me/AzatDance_bot" class="submit-button">Телеграмм бот</a>
+                            <form action="/submit-form" method="post">
+                                <div class="from-fields">
+                                    <a href="https://t.me/AzatDance_bot" class="submit-button">Телеграмм бот</a>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -68,8 +104,15 @@
             <div class="wrapper-carousel">
                 <h3>Программа обучения</h3>
                 <div class="carousel">
+                    <input type="radio" name="slides" id="slide1">
+                    <input type="radio" name="slides" id="slide2">
+                    <input type="radio" name="slides" id="slide3" checked>
+                    <input type="radio" name="slides" id="slide4">
+                    <input type="radio" name="slides" id="slide5">
+                    <input type="radio" name="slides" id="slide6">
+
                     <div class="cards">
-                        <div class="card" data-index="1">
+                        <div class="card" data-slide="slide1">
                             <div class="text-cards">
                                 <h4>Абхазские танцы</h4>
                                 <p>Абхазские танцы служат средством выражения истории,
@@ -77,14 +120,14 @@
                                     разделить на лирические и плясовые.</p>
                             </div>
                         </div>
-                        <div class="card" data-index="2">
+                        <div class="card" data-slide="slide2">
                             <div class="text-cards">
                                 <h4>Осетинские танцы</h4>
                                 <p>Осетинские танцы — часть культуры осетинского народа, в них отражена героическая история
                                     Осетии и черты национального характера.</p>
                             </div>
                         </div>
-                        <div class="card" data-index="3">
+                        <div class="card" data-slide="slide3">
                             <div class="text-cards">
                                 <h4>Адыгейские танцы</h4>
                                 <p>Адыгейские танцы отражают дух народа, его эстетику и этические принципы.
@@ -92,22 +135,22 @@
                                     ритмичными.</p>
                             </div>
                         </div>
-                        <div class="card" data-index="4">
+                        <div class="card" data-slide="slide4">
                             <div class="text-cards">
                                 <h4>Чеченские танцы</h4>
-                                <p>ЧЧеченский танец — народный танец чеченцев.
+                                <p>Чеченский танец — народный танец чеченцев.
                                     Он представляет собой сочетание мужской экспрессии и женской пластики:
                                     девушка танцует медленно, плавно, а мужчина — наоборот.</p>
                             </div>
                         </div>
-                        <div class="card" data-index="5">
+                        <div class="card" data-slide="slide5">
                             <div class="text-cards">
                                 <h4>Дагестанские танцы</h4>
                                 <p>Дагестанские национальные танцы славятся глубиной, эмоциональностью и нарядностью.
                                     Они передают дух народа, демонстрируют его силу и характер.</p>
                             </div>
                         </div>
-                        <div class="card" data-index="6">
+                        <div class="card" data-slide="slide6">
                             <div class="text-cards">
                                 <h4>Армянские танцы</h4>
                                 <p>Армянские танцы - это яркое отражение богатой культуры и истории Армении.
@@ -462,7 +505,6 @@
     </div>
 </main>
 
-<script src="./index.js" defer></script>
 <div class="containerr">
     <footer class="footer">
         <div class="footer-info">

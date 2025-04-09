@@ -2,10 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
 }
-
 
 body {
     font-family: Manrope, sans-serif;
@@ -167,11 +164,11 @@ section {
 }
 
 .text-application::before {
-    right: 92%;
+    right: 100%;
 }
 
 .text-application::after {
-    left: 92%;
+    left: 100%;
 }
 
 .submit-button {
@@ -230,7 +227,7 @@ section {
 }
 
 .carousel {
-    margin: 0;
+    margin: 90px 0 auto;
     overflow: hidden;
 }
 
@@ -239,12 +236,13 @@ section {
     position: relative;
     width: 100%;
     height: 500px;
+    -webkit-tap-highlight-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
     perspective: 600px;
-    --items: 6;
+    --items: 5;
     --middle: 3;
     --position: 3;
     transition: transform 0.7s ease;
@@ -258,18 +256,16 @@ section {
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
     transition: all 0.15s ease;
-    transform: rotateY(calc(-15deg * var(--r))) translateX(calc(-400px * var(--r)));
+    transform: rotateY(calc(-15deg * var(--r)))
+    translateX(calc(-400px * var(--r)));
     z-index: calc((var(--position) - var(--abs)));
     display: flex;
     align-items: center;
     text-align: center;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    cursor: pointer; /* Для десктопа */
-    -webkit-user-select: none; /* Префикс для iOS */
+    cursor: pointer;
     user-select: none;
-    -webkit-tap-highlight-color: transparent; /* Убирает подсветку */
-    touch-action: manipulation;
 }
 
 html {
@@ -1414,23 +1410,23 @@ input[type="submit"]:hover {
         line-height: 1;
     }
 
-    .f1 span {
+    .f1 span{
         padding: 6px 0;
     }
 
-    .f2 span {
+    .f2 span{
         padding: 7px 0;
     }
 
-    .f4 span {
+    .f4 span{
         padding: 5px 0;
     }
 
-    .ff1 span {
+    .ff1 span{
         padding: 6px 0;
     }
 
-    .ff2 span {
+    .ff2 span{
         padding: 7px 0;
     }
 
@@ -1447,7 +1443,34 @@ input[type="submit"]:hover {
         width: 270px;
         height: 311px;
     }
+
+
+    .card {
+        width: 250px;
+        height: 320px;
+        transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-200px * var(--r)));
+    }
+
+    .card:hover {
+        transform: rotateY(calc(-8deg * var(--r))) translateX(calc(-160px * var(--r))) scale(1.05);
+    }
+
+    .text-cards h4 {
+        padding: 10px 20px 30px;
+        font-size: 26px;
+    }
+
+    .text-cards p {
+        font-size: 14px;
+    }
+
+    .wrapper-carousel h3 {
+        font-size: 28px;
+        padding: 0 0 20px;
+    }
+
 }
+
 
 @supports (-webkit-touch-callout: none) {
     .card {
@@ -1456,17 +1479,12 @@ input[type="submit"]:hover {
         cursor: pointer;
     }
 
+    .cards {
+        -webkit-perspective: 1200px;
+        perspective: 1200px;
+    }
+
     .card:active {
         transform: scale(0.98) !important;
     }
-}
-
-a, button, input, textarea, select, details {
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-a, button, input, textarea, select, details {
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
 }
