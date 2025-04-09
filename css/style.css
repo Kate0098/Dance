@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-focus-ring-color: transparent;
+    outline: none;
+}
+
 body {
     font-family: Manrope, sans-serif;
     background: #000000;
@@ -1278,7 +1284,7 @@ padding: 5px;
     .wrapper-price-dances span,
     .price-ddances span {
         font-size: 9px;
-        padding: 4px 0;
+        padding: 3px 0;
         line-height: 10px;
     }
 
