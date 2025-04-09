@@ -4,15 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let isDragging = false;
     let startX = 0;
 
-    // Устанавливаем начальную позицию
     cardsContainer.style.setProperty('--position', 3);
 
-    // Функция для переключения слайда
     function switchSlide(index) {
         cardsContainer.style.setProperty('--position', index);
     }
 
-    // Обработка кликов и касаний
     cardsContainer.addEventListener('click', function(e) {
         const card = e.target.closest('.card');
         if (card && !isDragging) {
@@ -21,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Обработка касаний для iPhone
     cardsContainer.addEventListener('touchstart', function(e) {
         startX = e.touches[0].clientX;
         isDragging = false;
@@ -45,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
         isDragging = false;
     }, { passive: true });
 
-    // Бургер-меню (без изменений)
     const burgerCheckbox = document.getElementById('burger-checkbox');
     document.querySelectorAll('.menu-item').forEach(item => {
         item.addEventListener('click', () => {
