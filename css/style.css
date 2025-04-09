@@ -1411,23 +1411,23 @@ padding: 5px;
         line-height: 1;
     }
 
-    .f1 span{
+    .f1 span {
         padding: 6px 0;
     }
 
-    .f2 span{
+    .f2 span {
         padding: 7px 0;
     }
 
-    .f4 span{
+    .f4 span {
         padding: 5px 0;
     }
 
-    .ff1 span{
+    .ff1 span {
         padding: 6px 0;
     }
 
-    .ff2 span{
+    .ff2 span {
         padding: 7px 0;
     }
 
@@ -1444,55 +1444,28 @@ padding: 5px;
         width: 270px;
         height: 311px;
     }
-
-
-    .card {
-        width: 250px;
-        height: 320px;
-        transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-200px * var(--r)));
-    }
-
-    .card:hover {
-        transform: rotateY(calc(-8deg * var(--r))) translateX(calc(-160px * var(--r))) scale(1.05);
-    }
-
-    .text-cards h4 {
-        padding: 10px 20px 30px;
-        font-size: 26px;
-    }
-
-    .text-cards p {
-        font-size: 14px;
-    }
-
-    .wrapper-carousel h3 {
-        font-size: 28px;
-        padding: 0 0 20px;
-    }
-
 }
 
+    @supports (-webkit-touch-callout: none) {
+        .card {
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+            cursor: pointer;
+        }
 
-@supports (-webkit-touch-callout: none) {
-    .card {
-        -webkit-transform-style: preserve-3d;
-        -webkit-backface-visibility: hidden;
-        cursor: pointer;
+        .card:active {
+            transform: scale(0.98) !important;
+        }
     }
 
-    .card:active {
-        transform: scale(0.98) !important;
+    a, button, input, textarea, select, details {
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
     }
-}
 
-a, button, input, textarea, select, details {
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-}
-
-a, button, input, textarea, select, details {
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-}
+    a, button, input, textarea, select, details {
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+    }
 
 

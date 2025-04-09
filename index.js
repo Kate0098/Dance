@@ -55,18 +55,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Инициализация высоты
     fixMobileHeight();
     window.addEventListener('resize', fixMobileHeight);
 
-    // Функция переключения слайдов
     function switchSlide(slideId) {
         const radio = document.getElementById(slideId);
         if (!radio) return;
 
         radio.checked = true;
 
-        // Принудительно запускаем событие для мобильных устройств
         const event = new Event('change', { bubbles: true });
         radio.dispatchEvent(event);
 
@@ -79,23 +76,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Обработчики для карточек
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
-        // Обработчик для клика (десктоп и часть мобильных)
         card.addEventListener('click', function(e) {
             e.preventDefault();
             const slideId = this.getAttribute('data-slide');
             switchSlide(slideId);
         });
 
-        // Обработчик для касания (мобильные устройства)
         card.addEventListener('touchend', function(e) {
             e.preventDefault();
             const slideId = this.getAttribute('data-slide');
             switchSlide(slideId);
 
-            // Визуальная обратная связь
             this.style.transform = 'scale(0.98)';
             setTimeout(() => {
                 this.style.transform = '';
