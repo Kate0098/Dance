@@ -165,11 +165,11 @@ section {
 }
 
 .text-application::before {
-    right: 100%;
+    right: 92%;
 }
 
 .text-application::after {
-    left: 100%;
+    left: 92%;
 }
 
 .submit-button {

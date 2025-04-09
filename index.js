@@ -1,61 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.card');
+    const cardsContainer = document.querySelector('.cards');
     const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
     let startX = 0;
     let isDragging = false;
+    let touchTimeout;
 
     // Функция для переключения слайда
     function switchSlide(slideId) {
         const radio = document.getElementById(slideId);
         if (radio && !radio.checked) {
             radio.checked = true;
-            // Имитируем событие change для обновления интерфейса
-            const event = new Event('change', { bubbles: true });
-            radio.dispatchEvent(event);
+            radio.dispatchEvent(new Event('change', { bubbles: true }));
         }
     }
 
-    // Обработчики для кликов
-    cards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            if (!isDragging) { // Проверяем, не было ли это частью свайпа
-                const slideId = this.getAttribute('data-slide');
-                switchSlide(slideId);
-            }
-        });
+    // Обработчик нажатий через click (для десктопов)
+    cardsContainer.addEventListener('click', function(e) {
+        const card = e.target.closest('.card');
+        if (card && !isDragging) {
+            const slideId = card.getAttribute('data-slide');
+            switchSlide(slideId);
+        }
     });
 
-    // Обработчики для касаний (для мобильных устройств)
-    cards.forEach(card => {
-        card.addEventListener('touchstart', function(e) {
-            startX = e.touches[0].clientX;
-            isDragging = false;
-        }, { passive: true });
+    // Обработка касаний для iPhone и других сенсорных устройств
+    cardsContainer.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        isDragging = false;
 
-        card.addEventListener('touchmove', function(e) {
-            if (Math.abs(e.touches[0].clientX - startX) > 10) {
-                isDragging = true; // Пользователь начал свайп
-            }
-        }, { passive: true });
-
-        card.addEventListener('touchend', function(e) {
-            if (!isDragging) {
-                const slideId = this.getAttribute('data-slide');
+        // Задержка для определения, тап это или свайп
+        touchTimeout = setTimeout(() => {
+            const card = e.target.closest('.card');
+            if (card && !isDragging) {
+                const slideId = card.getAttribute('data-slide');
                 switchSlide(slideId);
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
+                card.style.transform = 'scale(0.98)';
+                setTimeout(() => card.style.transform = '', 200);
             }
-            isDragging = false;
-        }, { passive: false });
-    });
+        }, 150); // Задержка в 150 мс для распознавания тапа
+    }, { passive: true });
 
-    // Бургер-меню
+    cardsContainer.addEventListener('touchmove', function(e) {
+        const moveX = e.touches[0].clientX;
+        if (Math.abs(moveX - startX) > 10) { // Порог для свайпа
+            isDragging = true;
+            clearTimeout(touchTimeout); // Отменяем тап, если начался свайп
+        }
+    }, { passive: true });
+
+    cardsContainer.addEventListener('touchend', function(e) {
+        clearTimeout(touchTimeout); // Очищаем таймер при завершении касания
+        isDragging = false;
+    }, { passive: true });
+
+    // Бургер-меню (без изменений)
     const burgerCheckbox = document.getElementById('burger-checkbox');
-    const menuItems = document.querySelectorAll('.menu-item');
-
-    menuItems.forEach(item => {
+    document.querySelectorAll('.menu-item').forEach(item => {
         item.addEventListener('click', () => {
             burgerCheckbox.checked = false;
         });
