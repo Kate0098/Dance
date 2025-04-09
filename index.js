@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('touchend', function(e) {
             if (!isDragging) {
                 const cardIndex = parseInt(this.getAttribute('data-index'), 10);
+                console.log('Нажата карта:', cardIndex);
                 if (cardIndex > currentPosition) {
                     updatePosition(currentPosition + 1); // Сдвиг вправо
                 } else if (cardIndex < currentPosition) {
