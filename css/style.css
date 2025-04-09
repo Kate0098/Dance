@@ -1500,31 +1500,4 @@ a, button, input, textarea, select, details {
     -webkit-tap-highlight-color: transparent;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-.carousel {
-    overflow: hidden;
-    position: relative;
-}
-
-.cards {
-    display: flex;
-    transition: transform 0.7s ease;
-}
-
-.card {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 487px;
-    margin-right: 20px;
-    transition: transform 0.3s ease;
-}
-
-.card:last-child {
-    margin-right: 0;
-}
 
