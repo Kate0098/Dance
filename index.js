@@ -1,23 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cardsContainer = document.querySelector('.cards');
-    document.querySelectorAll('.card');
+    let currentPosition = 3; // Начальная позиция (центр)
     let isDragging = false;
     let startX = 0;
 
-    cardsContainer.style.setProperty('--position', 3);
+    // Устанавливаем начальную позицию
+    cardsContainer.style.setProperty('--position', currentPosition);
 
-    function switchSlide(index) {
-        cardsContainer.style.setProperty('--position', index);
+    // Функция для обновления позиции карусели
+    function updatePosition(newPosition) {
+        const totalCards = document.querySelectorAll('.card').length;
+        currentPosition = Math.max(1, Math.min(newPosition, totalCards)); // Ограничение от 1 до 6
+        cardsContainer.style.setProperty('--position', currentPosition);
     }
 
+    // Обработка кликов (для десктопов)
     cardsContainer.addEventListener('click', function(e) {
         const card = e.target.closest('.card');
         if (card && !isDragging) {
-            const index = parseInt(card.getAttribute('data-index'), 10);
-            switchSlide(index);
+            const cardIndex = parseInt(card.getAttribute('data-index'), 10);
+            if (cardIndex > currentPosition) {
+                updatePosition(currentPosition + 1); // Сдвиг вправо
+            } else if (cardIndex < currentPosition) {
+                updatePosition(currentPosition - 1); // Сдвиг влево
+            }
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => card.style.transform = '', 200);
         }
     });
 
+    // Обработка касаний (для iPhone)
     cardsContainer.addEventListener('touchstart', function(e) {
         startX = e.touches[0].clientX;
         isDragging = false;
@@ -33,14 +45,19 @@ document.addEventListener('DOMContentLoaded', function() {
     cardsContainer.addEventListener('touchend', function(e) {
         const card = e.target.closest('.card');
         if (card && !isDragging) {
-            const index = parseInt(card.getAttribute('data-index'), 10);
-            switchSlide(index);
+            const cardIndex = parseInt(card.getAttribute('data-index'), 10);
+            if (cardIndex > currentPosition) {
+                updatePosition(currentPosition + 1); // Сдвиг вправо
+            } else if (cardIndex < currentPosition) {
+                updatePosition(currentPosition - 1); // Сдвиг влево
+            }
             card.style.transform = 'scale(0.98)';
             setTimeout(() => card.style.transform = '', 200);
         }
         isDragging = false;
     }, { passive: true });
 
+    // Бургер-меню
     const burgerCheckbox = document.getElementById('burger-checkbox');
     document.querySelectorAll('.menu-item').forEach(item => {
         item.addEventListener('click', () => {

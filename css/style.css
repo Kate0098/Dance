@@ -2,6 +2,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 
@@ -228,7 +230,7 @@ section {
 }
 
 .carousel {
-    margin: 90px 0 auto;
+    margin: 0;
     overflow: hidden;
 }
 
@@ -674,11 +676,11 @@ input[type="submit"]:hover {
 }
 
 .wrapper-animators {
-     display: flex;
-     flex-direction: column;
-     gap: 40px;
-     text-align: center;
- }
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+}
 
 .wrapper-price-animators h4 {
     font-size: 30px;
@@ -700,7 +702,7 @@ input[type="submit"]:hover {
 }
 
 .one-1 span {
-padding: 5px;
+    padding: 5px;
 }
 
 .one-2 span {
@@ -844,8 +846,8 @@ padding: 5px;
 
 
 @media screen and (max-width: 1024px) {
-.foto-ddd {
-    display: none;
+    .foto-ddd {
+        display: none;
     }
 }
 
@@ -1327,7 +1329,7 @@ padding: 5px;
     .wrapper-animators .two {
         padding: 18px 0;
     }
-    
+
     .price h3 {
         font-size: 41px;
         line-height: 6px;
@@ -1393,7 +1395,7 @@ padding: 5px;
     .three.h3 span {
         font-size: 12px;
     }
-    
+
     .f3 span {
         padding: 5% 0;
     }
@@ -1445,26 +1447,24 @@ padding: 5px;
     }
 }
 
-    @supports (-webkit-touch-callout: none) {
-        .card {
-            -webkit-transform-style: preserve-3d;
-            -webkit-backface-visibility: hidden;
-            cursor: pointer;
-        }
-
-        .card:active {
-            transform: scale(0.98) !important;
-        }
+@supports (-webkit-touch-callout: none) {
+    .card {
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        cursor: pointer;
     }
 
-    a, button, input, textarea, select, details {
-        outline: none;
-        -webkit-tap-highlight-color: transparent;
+    .card:active {
+        transform: scale(0.98) !important;
     }
+}
 
-    a, button, input, textarea, select, details {
-        outline: none;
-        -webkit-tap-highlight-color: transparent;
-    }
+a, button, input, textarea, select, details {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
 
-
+a, button, input, textarea, select, details {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
