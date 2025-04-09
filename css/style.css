@@ -247,6 +247,7 @@ section {
     --middle: 3;
     --position: 3;
     transition: transform 0.7s ease;
+    transform: translateX(calc(-400px * (var(--position) - var(--middle))));
 }
 
 .card {
@@ -267,6 +268,7 @@ section {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     user-select: none;
+
 }
 
 html {
