@@ -247,7 +247,6 @@ section {
     --position: 3;
     transition: transform 0.7s ease;
     -webkit-transform-style: preserve-3d;
-    -webkit-perspective: 1200px;
 
 }
 
