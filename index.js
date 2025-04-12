@@ -1,113 +1,90 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Фиксация высоты для мобильных устройств
-    function fixMobileHeight() {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-        const infoSection = document.querySelector('.info');
-        if (infoSection) {
-            infoSection.style.minHeight = 'calc(var(--vh, 1vh) * 55)';
-        }
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    // Проверяем iOS устройство
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-    fixMobileHeight();
-    window.addEventListener('resize', fixMobileHeight);
-
-    // Карусель
+    // Элементы карусели
+    const cardsContainer = document.querySelector('.cards');
     const cards = document.querySelectorAll('.card');
     const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
-    const cardsContainer = document.querySelector('.cards');
 
+    // Функция для переключения слайда
     function switchSlide(slideId) {
         const radio = document.getElementById(slideId);
-        if (!radio) {
-            console.error(`Radio input with ID ${slideId} not found`);
-            return;
-        }
-        if (radio.checked) return;
+        if (!radio || radio.checked) return;
 
-        // Запускаем анимацию
+        // Добавляем класс анимации
         cardsContainer.classList.add('animating');
 
-        // Переключаем радиокнопку
+        // Устанавливаем новую позицию
         radio.checked = true;
 
-        // Запускаем событие change
-        const event = new Event('change', { bubbles: true, cancelable: true });
-        radio.dispatchEvent(event);
-
-        // Убираем класс анимации
-        setTimeout(() => {
+        // Для iOS добавляем небольшой таймаут
+        if (isIOS) {
+            setTimeout(() => {
+                cardsContainer.classList.remove('animating');
+            }, 100);
+        } else {
             cardsContainer.classList.remove('animating');
-        }, 700);
+        }
     }
 
-    cards.forEach((card) => {
+    // Обработчики для карточек
+    cards.forEach(card => {
         const slideId = card.getAttribute('data-slide');
-        if (!slideId) {
-            console.error('Card missing data-slide attribute');
-            return;
-        }
 
-        // Удаляем существующие обработчики (на случай дублирования)
-        card.removeEventListener('click', handleCardClick);
-        card.removeEventListener('touchend', handleCardClick);
-
-        // Обработчик click для десктопа
-        card.addEventListener('click', function (e) {
-            e.preventDefault();
+        // Клик для десктопов
+        card.addEventListener('click', () => {
             switchSlide(slideId);
         });
 
-        // Обработчик touchend для iOS
-        card.addEventListener('touchend', function (e) {
-            e.preventDefault();
-            switchSlide(slideId);
+        // Особый обработчик для iOS
+        if (isIOS) {
+            let startX = 0;
+            let moved = false;
 
-            // Эффект нажатия
-            this.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 200);
-        }, { passive: false });
+            card.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                moved = false;
+            }, { passive: true });
+
+            card.addEventListener('touchmove', (e) => {
+                if (Math.abs(e.touches[0].clientX - startX) > 10) {
+                    moved = true;
+                }
+            }, { passive: true });
+
+            card.addEventListener('touchend', (e) => {
+                if (!moved) {
+                    e.preventDefault();
+                    switchSlide(slideId);
+
+                    // Эффект нажатия
+                    card.style.transform = card.style.transform + ' scale(0.98)';
+                    setTimeout(() => {
+                        card.style.transform = card.style.transform.replace(' scale(0.98)', '');
+                    }, 200);
+                }
+            }, { passive: false });
+        }
     });
 
-    radioInputs.forEach((input) => {
-        // Удаляем существующие обработчики
-        input.removeEventListener('change', handleRadioChange);
-        input.removeEventListener('touchend', handleRadioTouch);
-
-        // Обработчик change
-        input.addEventListener('change', function () {
+    // Обработчики для радио-кнопок
+    radioInputs.forEach(input => {
+        input.addEventListener('change', function() {
             if (this.checked) {
                 switchSlide(this.id);
             }
         });
-
-        // Обработчик touchend для радиокнопок
-        input.addEventListener('touchend', function (e) {
-            e.preventDefault();
-            switchSlide(this.id);
-        }, { passive: false });
     });
 
     // Бургер-меню
     const burgerCheckbox = document.getElementById('burger-checkbox');
     const menuItems = document.querySelectorAll('.menu-item');
 
-    menuItems.forEach((item) => {
+    menuItems.forEach(item => {
         item.addEventListener('click', () => {
             burgerCheckbox.checked = false;
         });
-    });
-});
-
-// Функции для предотвращения дублирования
-function handleCardClick(e) {}
-function handleRadioChange() {}
-function handleRadioTouch(e) {}
-
-cards.forEach((card) => {
-    card.addEventListener('touchstart', function () {
-        console.log('Touch started on card:', card.getAttribute('data-slide'));
     });
 });

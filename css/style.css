@@ -237,7 +237,7 @@ section {
 .carousel {
     margin: 90px 0 auto;
     overflow: hidden;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
 }
 
 
@@ -252,12 +252,9 @@ section {
     -webkit-transform-style: preserve-3d;
     -webkit-perspective: 600px;
     perspective: 600px;
-    --items: 5;
-    --middle: 3;
-    --position: 3;
     transition: transform 0.7s ease;
     -webkit-transition: transform 0.7s ease;
-    will-change: transform;
+    touch-action: pan-y;
 }
 
 .card {
@@ -268,8 +265,9 @@ section {
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
     transition: all 0.15s ease;
-    transform: rotateY(calc(-15deg * var(--r)))
-    translateX(calc(-400px * var(--r)));
+    -webkit-transition: all 0.15s ease;
+    transform: rotateY(calc(-15deg * var(--r))) translateX(calc(-400px * var(--r)));
+    -webkit-transform: rotateY(calc(-15deg * var(--r))) translateX(calc(-400px * var(--r)));
     z-index: calc((var(--position) - var(--abs)));
     display: flex;
     align-items: center;
@@ -277,9 +275,12 @@ section {
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    user-select: none;
-    -webkit-transform-style: preserve-3d;
+    -webkit-tap-highlight-color: transparent; /* Убираем подсветку при тапе */
+    backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 0.15s ease;
 }
 
 
@@ -1112,6 +1113,9 @@ input[type="submit"]:hover {
     .card {
         width: 256px;
         height: 311px;
+        touch-action: pan-y;
+        -webkit-user-select: none;
+        user-select: none;
         transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-250px * var(--r)));
     }
 
@@ -1616,6 +1620,7 @@ html {
     .card {
         width: 250px;
         height: 320px;
+        -webkit-transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-200px * var(--r)));
         transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-200px * var(--r)));
     }
 
