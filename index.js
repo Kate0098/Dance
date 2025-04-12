@@ -51,22 +51,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const infoSection = document.querySelector('.info');
         if (infoSection) {
-            infoSection.style.minHeight = 'calc(var(--vh, 1vh) * 50)';
+            infoSection.style.minHeight = 'calc(var(--vh, 1vh) * 55)';
         }
     }
 
-    // Инициализация высоты
     fixMobileHeight();
     window.addEventListener('resize', fixMobileHeight);
 
-    // Функция переключения слайдов
     function switchSlide(slideId) {
         const radio = document.getElementById(slideId);
         if (!radio) return;
 
         radio.checked = true;
 
-        // Принудительно запускаем событие для мобильных устройств
         const event = new Event('change', { bubbles: true });
         radio.dispatchEvent(event);
 
@@ -79,23 +76,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Обработчики для карточек
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
-        // Обработчик для клика (десктоп и часть мобильных)
         card.addEventListener('click', function(e) {
             e.preventDefault();
             const slideId = this.getAttribute('data-slide');
             switchSlide(slideId);
         });
 
-        // Обработчик для касания (мобильные устройства)
         card.addEventListener('touchend', function(e) {
             e.preventDefault();
             const slideId = this.getAttribute('data-slide');
             switchSlide(slideId);
 
-            // Визуальная обратная связь
             this.style.transform = 'scale(0.98)';
             setTimeout(() => {
                 this.style.transform = '';
@@ -103,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: false });
     });
 
-    // Бургер-меню
     const burgerCheckbox = document.getElementById('burger-checkbox');
     const menuItems = document.querySelectorAll('.menu-item');
 
@@ -112,4 +104,26 @@ document.addEventListener('DOMContentLoaded', function() {
             burgerCheckbox.checked = false;
         });
     });
+});
+
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+function handleCardClick(e, card) {
+    if (isIOS) {
+        e.preventDefault();
+        const slideId = card.getAttribute('data-slide');
+        switchSlide(slideId);
+
+        // Добавляем анимацию нажатия для iOS
+        card.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            card.style.transform = '';
+        }, 200);
+    }
+}
+
+cards.forEach(card => {
+    card.addEventListener('click', (e) => handleCardClick(e, card));
+    card.addEventListener('touchend', (e) => handleCardClick(e, card), { passive: false });
 });

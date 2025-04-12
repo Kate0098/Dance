@@ -246,6 +246,9 @@ section {
     --middle: 3;
     --position: 3;
     transition: transform 0.7s ease;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 1200px;
+
 }
 
 .card {
@@ -266,12 +269,13 @@ section {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     user-select: none;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
 }
 
 html {
     -webkit-text-size-adjust: 100%;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 
@@ -1063,10 +1067,12 @@ input[type="submit"]:hover {
 
     .h5 {
         border-bottom: 2px solid #978157;
+
     }
 
     .h-5 {
         border-left: 2px solid #978157;
+        padding: 0 0 0 25px;
     }
 
     .h9 {
@@ -1163,8 +1169,17 @@ input[type="submit"]:hover {
         padding: 0 0 0 50px;
         font-size: 15px;
     }
+
     .h5 {
-        padding: 0 0 1px 50px
+        padding: 0 0 0 25px
+    }
+
+    .hh-9 {
+        padding: 0 0 0 25px;
+    }
+
+    .h-9 {
+        padding: 12px 0 19px 0;
     }
 
     .wrapper-application {
