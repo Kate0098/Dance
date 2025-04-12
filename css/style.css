@@ -231,11 +231,13 @@ section {
 .carousel input[type="radio"]:hover {
     transform: scale(1.1);
     transition: transform 0.2s ease;
+    -webkit-transition: transform 0.2s ease;
 }
 
 .carousel {
     margin: 90px 0 auto;
     overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -243,18 +245,19 @@ section {
     position: relative;
     width: 100%;
     height: 500px;
-    -webkit-tap-highlight-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -webkit-perspective: 600px;
     perspective: 600px;
     --items: 5;
     --middle: 3;
     --position: 3;
     transition: transform 0.7s ease;
-    -webkit-transform-style: preserve-3d;
-
+    -webkit-transition: transform 0.7s ease;
+    will-change: transform;
 }
 
 .card {
@@ -277,11 +280,6 @@ section {
     user-select: none;
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
-}
-
-html {
-    -webkit-text-size-adjust: 100%;
-    touch-action: manipulation;
 }
 
 
@@ -1638,4 +1636,13 @@ html {
     .card:active {
         transform: scale(0.98);
     }
+}
+
+.cards::after {
+    content: var(--position);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 20px;
 }

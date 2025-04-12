@@ -12,10 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fixMobileHeight();
     window.addEventListener('resize', fixMobileHeight);
 
-    // Проверка iOS
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
     // Карусель
     const cards = document.querySelectorAll('.card');
     const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
@@ -23,14 +19,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function switchSlide(slideId) {
         const radio = document.getElementById(slideId);
-        if (!radio || radio.checked) return;
+        if (!radio) {
+            console.error(`Radio input with ID ${slideId} not found`);
+            return;
+        }
+        if (radio.checked) return;
 
+        // Запускаем анимацию
         cardsContainer.classList.add('animating');
+
+        // Переключаем радиокнопку
         radio.checked = true;
 
+        // Запускаем событие change
         const event = new Event('change', { bubbles: true, cancelable: true });
         radio.dispatchEvent(event);
 
+        // Убираем класс анимации
         setTimeout(() => {
             cardsContainer.classList.remove('animating');
         }, 700);
@@ -43,12 +48,17 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // Универсальный обработчик для click и touchend
+        // Удаляем существующие обработчики (на случай дублирования)
+        card.removeEventListener('click', handleCardClick);
+        card.removeEventListener('touchend', handleCardClick);
+
+        // Обработчик click для десктопа
         card.addEventListener('click', function (e) {
             e.preventDefault();
             switchSlide(slideId);
         });
 
+        // Обработчик touchend для iOS
         card.addEventListener('touchend', function (e) {
             e.preventDefault();
             switchSlide(slideId);
@@ -62,11 +72,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     radioInputs.forEach((input) => {
+        // Удаляем существующие обработчики
+        input.removeEventListener('change', handleRadioChange);
+        input.removeEventListener('touchend', handleRadioTouch);
+
+        // Обработчик change
         input.addEventListener('change', function () {
             if (this.checked) {
                 switchSlide(this.id);
             }
         });
+
+        // Обработчик touchend для радиокнопок
+        input.addEventListener('touchend', function (e) {
+            e.preventDefault();
+            switchSlide(this.id);
+        }, { passive: false });
     });
 
     // Бургер-меню
@@ -77,5 +98,16 @@ document.addEventListener('DOMContentLoaded', function () {
         item.addEventListener('click', () => {
             burgerCheckbox.checked = false;
         });
+    });
+});
+
+// Функции для предотвращения дублирования
+function handleCardClick(e) {}
+function handleRadioChange() {}
+function handleRadioTouch(e) {}
+
+cards.forEach((card) => {
+    card.addEventListener('touchstart', function () {
+        console.log('Touch started on card:', card.getAttribute('data-slide'));
     });
 });
