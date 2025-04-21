@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Фиксируем высоту для мобильных устройств
     function fixMobileHeight() {
         const vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -10,23 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Инициализация высоты
     fixMobileHeight();
     window.addEventListener('resize', fixMobileHeight);
 
-    // Функция переключения слайдов
     function switchSlide(slideId) {
         const radio = document.getElementById(slideId);
         if (!radio) return;
 
         radio.checked = true;
 
-        // Принудительно запускаем событие change
         const event = new Event('change', { bubbles: true });
         radio.dispatchEvent(event);
     }
 
-    // Функция плавного переключения слайдов
     function smoothSwitch(slideId) {
         const radio = document.getElementById(slideId);
         if (radio && !radio.checked) {
@@ -38,32 +33,58 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Обработчики для карточек карусели
+    let autoSlideInterval = null;
+    function startAutoSlide() {
+        if (window.innerWidth <= 768) {
+            const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
+            let currentIndex = Array.from(radioInputs).findIndex(input => input.checked);
+            if (currentIndex === -1) currentIndex = 0;
+
+            autoSlideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % radioInputs.length;
+                const slideId = radioInputs[currentIndex].id;
+                switchSlide(slideId);
+                smoothSwitch(slideId);
+            }, 3000);
+        }
+    }
+
+    function stopAutoSlide() {
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+    }
+
+    startAutoSlide();
+    window.addEventListener('resize', () => {
+        stopAutoSlide();
+        startAutoSlide();
+    });
+
     const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         const slideId = card.getAttribute('data-slide');
 
-        // Универсальный обработчик для click и touchend
         function handleInteraction(e) {
-            e.preventDefault(); // Предотвращаем нежелательное поведение (например, прокрутку)
+            e.preventDefault();
+            stopAutoSlide();
             switchSlide(slideId);
             smoothSwitch(slideId);
 
-            // Визуальная обратная связь
             card.style.transform = 'scale(0.98)';
             setTimeout(() => {
                 card.style.transform = '';
             }, 200);
+
+            setTimeout(startAutoSlide, 10000);
         }
 
-        // Добавляем обработчик для click
         card.addEventListener('click', handleInteraction);
 
-        // Добавляем обработчик для touchend
         card.addEventListener('touchend', handleInteraction, { passive: false });
     });
 
-    // Обработчики для радио-кнопок
     const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
     radioInputs.forEach(input => {
         input.addEventListener('change', function() {
@@ -73,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Бургер-меню
     const burgerCheckbox = document.getElementById('burger-checkbox');
     const menuItems = document.querySelectorAll('.menu-item');
 
