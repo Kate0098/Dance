@@ -248,14 +248,10 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    perspective: 600px;
-    -webkit-perspective: 600px;
     transition: transform 0.7s ease;
     -webkit-transition: transform 0.7s ease;
     will-change: transform;
-    touch-action: manipulation; /* Упрощаем взаимодействие */
+    touch-action: manipulation;
 }
 
 .card {
@@ -267,7 +263,7 @@ section {
     --abs: max(calc(var(--r) * -1), var(--r));
     transition: all 0.15s ease;
     -webkit-transition: all 0.15s ease;
-    transform: rotateY(calc(-15deg * var(--r))) translateX(calc(-400px * var(--r)));
+    transform: translateX(calc(-400px * var(--r)));
     z-index: calc((var(--position) - var(--abs)));
     display: flex;
     align-items: center;
@@ -275,11 +271,9 @@ section {
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    touch-action: manipulation; /* Упрощаем взаимодействие на сенсорных устройствах */
+    touch-action: manipulation;
     -webkit-user-select: none;
     user-select: none;
-    backface-visibility: hidden; /* Устраняем артефакты рендеринга */
-    -webkit-backface-visibility: hidden;
 }
 
 html {
@@ -290,10 +284,9 @@ html {
 
 
 .card:hover {
-    transform: rotateY(calc(-10deg * var(--r)))
-    translateX(calc(-300px * var(--r)))
-    scale(1);
+    transform: translateX(calc(-300px * var(--r))) scale(1.05);
     transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
 }
 
 .card img {
@@ -302,11 +295,11 @@ html {
 
 .text-cards {
     padding: 10px;
-    pointer-events: none; /* Отключаем события на тексте */
-    transform-style: flat; /* Отключаем 3D-контекст для текста */
+    pointer-events: none;
+    transform-style: flat;
     position: relative;
     z-index: 1;
-    backface-visibility: hidden; /* Устраняем артефакты рендеринга */
+    backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 
@@ -1100,7 +1093,7 @@ input[type="submit"]:hover {
 
     .menu-list {
         position: fixed;
-        top: -300%; /* Начальное положение - выше экрана */
+        top: -300%;
     }
 
     .info p {
@@ -1123,14 +1116,11 @@ input[type="submit"]:hover {
     .card {
         width: 256px;
         height: 311px;
-        touch-action: pan-y;
-        -webkit-user-select: none;
-        user-select: none;
-        transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-250px * var(--r)));
+        transform: translateX(calc(-250px * var(--r)));
     }
 
     .card:hover {
-        transform: rotateY(calc(-8deg * var(--r))) translateX(calc(-200px * var(--r))) scale(1.05);
+        transform: translateX(calc(-200px * var(--r))) scale(1.05);
     }
 
     .text-cards h4 {
@@ -1473,19 +1463,13 @@ input[type="submit"]:hover {
     }
 
     .card {
-        width: 270px;
-        height: 311px;
-    }
-
-
-    .card {
         width: 250px;
         height: 320px;
-        transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-200px * var(--r)));
+        transform: translateX(calc(-200px * var(--r)));
     }
 
     .card:hover {
-        transform: rotateY(calc(-8deg * var(--r))) translateX(calc(-160px * var(--r))) scale(1.05);
+        transform: translateX(calc(-160px * var(--r))) scale(1.05);
     }
 
     .text-cards h4 {
