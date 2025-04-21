@@ -245,16 +245,17 @@ section {
     position: relative;
     width: 100%;
     height: 500px;
-    -webkit-tap-highlight-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     perspective: 600px;
-    --items: 5;
-    --middle: 3;
-    --position: 3;
+    -webkit-perspective: 600px;
     transition: transform 0.7s ease;
+    -webkit-transition: transform 0.7s ease;
+    will-change: transform;
+    touch-action: manipulation; /* Упрощаем взаимодействие */
 }
 
 .card {
@@ -265,8 +266,8 @@ section {
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
     transition: all 0.15s ease;
-    transform: rotateY(calc(-15deg * var(--r)))
-    translateX(calc(-400px * var(--r)));
+    -webkit-transition: all 0.15s ease;
+    transform: rotateY(calc(-15deg * var(--r))) translateX(calc(-400px * var(--r)));
     z-index: calc((var(--position) - var(--abs)));
     display: flex;
     align-items: center;
@@ -274,7 +275,11 @@ section {
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    touch-action: manipulation; /* Упрощаем взаимодействие на сенсорных устройствах */
+    -webkit-user-select: none;
     user-select: none;
+    backface-visibility: hidden; /* Устраняем артефакты рендеринга */
+    -webkit-backface-visibility: hidden;
 }
 
 html {
@@ -297,7 +302,12 @@ html {
 
 .text-cards {
     padding: 10px;
-    pointer-events: none;
+    pointer-events: none; /* Отключаем события на тексте */
+    transform-style: flat; /* Отключаем 3D-контекст для текста */
+    position: relative;
+    z-index: 1;
+    backface-visibility: hidden; /* Устраняем артефакты рендеринга */
+    -webkit-backface-visibility: hidden;
 }
 
 .text-cards h4 {

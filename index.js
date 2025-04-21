@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         radio.checked = true;
 
-        // Принудительно запускаем событие для мобильных устройств
+        // Принудительно запускаем событие change
         const event = new Event('change', { bubbles: true });
         radio.dispatchEvent(event);
     }
@@ -43,25 +43,24 @@ document.addEventListener('DOMContentLoaded', function() {
     cards.forEach(card => {
         const slideId = card.getAttribute('data-slide');
 
-        // Обработчик для клика (десктоп и часть мобильных)
-        card.addEventListener('click', function(e) {
-            e.preventDefault();
-            switchSlide(slideId);
-            smoothSwitch(slideId);
-        });
-
-        // Обработчик для касания (мобильные устройства)
-        card.addEventListener('touchend', function(e) {
-            e.preventDefault();
+        // Универсальный обработчик для click и touchend
+        function handleInteraction(e) {
+            e.preventDefault(); // Предотвращаем нежелательное поведение (например, прокрутку)
             switchSlide(slideId);
             smoothSwitch(slideId);
 
             // Визуальная обратная связь
-            this.style.transform = 'scale(0.98)';
+            card.style.transform = 'scale(0.98)';
             setTimeout(() => {
-                this.style.transform = '';
+                card.style.transform = '';
             }, 200);
-        }, { passive: false });
+        }
+
+        // Добавляем обработчик для click
+        card.addEventListener('click', handleInteraction);
+
+        // Добавляем обработчик для touchend
+        card.addEventListener('touchend', handleInteraction, { passive: false });
     });
 
     // Обработчики для радио-кнопок
