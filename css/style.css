@@ -245,16 +245,16 @@ section {
     position: relative;
     width: 100%;
     height: 500px;
+    -webkit-tap-highlight-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -webkit-perspective: 600px;
     perspective: 600px;
+    --items: 5;
+    --middle: 3;
+    --position: 3;
     transition: transform 0.7s ease;
-    -webkit-transition: transform 0.7s ease;
-    touch-action: pan-y;
 }
 
 .card {
@@ -265,9 +265,8 @@ section {
     --r: calc(var(--position) - var(--offset));
     --abs: max(calc(var(--r) * -1), var(--r));
     transition: all 0.15s ease;
-    -webkit-transition: all 0.15s ease;
-    transform: rotateY(calc(-15deg * var(--r))) translateX(calc(-400px * var(--r)));
-    -webkit-transform: rotateY(calc(-15deg * var(--r))) translateX(calc(-400px * var(--r)));
+    transform: rotateY(calc(-15deg * var(--r)))
+    translateX(calc(-400px * var(--r)));
     z-index: calc((var(--position) - var(--abs)));
     display: flex;
     align-items: center;
@@ -275,12 +274,13 @@ section {
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* Убираем подсветку при тапе */
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform 0.15s ease;
+    user-select: none;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
 }
 
 
@@ -1494,24 +1494,6 @@ input[type="submit"]:hover {
 
 }
 
-
-@supports (-webkit-touch-callout: none) {
-    .card {
-        -webkit-transform-style: preserve-3d;
-        -webkit-backface-visibility: hidden;
-        cursor: pointer;
-    }
-
-    .cards {
-        -webkit-perspective: 1200px;
-        perspective: 1200px;
-    }
-
-    .card:active {
-        transform: scale(0.98) !important;
-    }
-}
-
 html {
     -webkit-text-size-adjust: 100%;
     touch-action: manipulation;
@@ -1620,7 +1602,6 @@ html {
     .card {
         width: 250px;
         height: 320px;
-        -webkit-transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-200px * var(--r)));
         transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-200px * var(--r)));
     }
 
@@ -1629,19 +1610,7 @@ html {
     }
 }
 
-/* Убираем проблемный @supports */
-@supports (-webkit-transform-style: preserve-3d) {
-    .card {
-        -webkit-transform-style: preserve-3d;
-        -webkit-backface-visibility: hidden;
-    }
-    .cards {
-        -webkit-perspective: 600px;
-    }
-    .card:active {
-        transform: scale(0.98);
-    }
-}
+
 
 .cards::after {
     content: var(--position);

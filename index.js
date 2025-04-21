@@ -1,79 +1,75 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Проверяем iOS устройство
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    // Фиксируем высоту для мобильных устройств
+    function fixMobileHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-    // Элементы карусели
-    const cardsContainer = document.querySelector('.cards');
-    const cards = document.querySelectorAll('.card');
-    const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
-
-    // Функция для переключения слайда
-    function switchSlide(slideId) {
-        const radio = document.getElementById(slideId);
-        if (!radio || radio.checked) return;
-
-        // Добавляем класс анимации
-        cardsContainer.classList.add('animating');
-
-        // Устанавливаем новую позицию
-        radio.checked = true;
-
-        // Для iOS добавляем небольшой таймаут
-        if (isIOS) {
-            setTimeout(() => {
-                cardsContainer.classList.remove('animating');
-            }, 100);
-        } else {
-            cardsContainer.classList.remove('animating');
+        const infoSection = document.querySelector('.info');
+        if (infoSection) {
+            infoSection.style.minHeight = 'calc(var(--vh, 1vh) * 50)';
         }
     }
 
-    // Обработчики для карточек
+    // Инициализация высоты
+    fixMobileHeight();
+    window.addEventListener('resize', fixMobileHeight);
+
+    // Функция переключения слайдов
+    function switchSlide(slideId) {
+        const radio = document.getElementById(slideId);
+        if (!radio) return;
+
+        radio.checked = true;
+
+        // Принудительно запускаем событие для мобильных устройств
+        const event = new Event('change', { bubbles: true });
+        radio.dispatchEvent(event);
+    }
+
+    // Функция плавного переключения слайдов
+    function smoothSwitch(slideId) {
+        const radio = document.getElementById(slideId);
+        if (radio && !radio.checked) {
+            document.querySelector('.cards').classList.add('animating');
+            radio.checked = true;
+            setTimeout(() => {
+                document.querySelector('.cards').classList.remove('animating');
+            }, 700);
+        }
+    }
+
+    // Обработчики для карточек карусели
+    const cards = document.querySelectorAll('.card');
     cards.forEach(card => {
         const slideId = card.getAttribute('data-slide');
 
-        // Клик для десктопов
-        card.addEventListener('click', () => {
+        // Обработчик для клика (десктоп и часть мобильных)
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
             switchSlide(slideId);
+            smoothSwitch(slideId);
         });
 
-        // Особый обработчик для iOS
-        if (isIOS) {
-            let startX = 0;
-            let moved = false;
+        // Обработчик для касания (мобильные устройства)
+        card.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            switchSlide(slideId);
+            smoothSwitch(slideId);
 
-            card.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                moved = false;
-            }, { passive: true });
-
-            card.addEventListener('touchmove', (e) => {
-                if (Math.abs(e.touches[0].clientX - startX) > 10) {
-                    moved = true;
-                }
-            }, { passive: true });
-
-            card.addEventListener('touchend', (e) => {
-                if (!moved) {
-                    e.preventDefault();
-                    switchSlide(slideId);
-
-                    // Эффект нажатия
-                    card.style.transform = card.style.transform + ' scale(0.98)';
-                    setTimeout(() => {
-                        card.style.transform = card.style.transform.replace(' scale(0.98)', '');
-                    }, 200);
-                }
-            }, { passive: false });
-        }
+            // Визуальная обратная связь
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+        }, { passive: false });
     });
 
     // Обработчики для радио-кнопок
+    const radioInputs = document.querySelectorAll('.carousel input[type="radio"]');
     radioInputs.forEach(input => {
         input.addEventListener('change', function() {
             if (this.checked) {
-                switchSlide(this.id);
+                smoothSwitch(this.id);
             }
         });
     });
