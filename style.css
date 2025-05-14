@@ -219,7 +219,6 @@ body {
     position: absolute;
     border-radius: 50%;
     filter: blur(60px); /* Размытие границ */
-    opacity: 0.7; /* Прозрачность */
 }
 
 /* Первый круг */
@@ -1843,14 +1842,18 @@ body {
         width: 35px;
     }
 
+    .post {
+        margin:14px 0 0 18px;
+    }
+
     .post p {
         font-size: 9px;
         line-height: 10px;
     }
 
     .text-info h1 {
-        line-height: 20px;
-        font-size: 19px;
+        line-height: 15px;
+        font-size: 14px;
     }
 
     .info-text h2 {
@@ -1859,8 +1862,8 @@ body {
     }
 
     .photo-man {
-        width: 108px;
-        left: 30%;
+        width: 101px;
+        left: 24%;
         top: 13%;
     }
 
@@ -1881,10 +1884,10 @@ body {
     }
 
     .background-circles::before {
-        width: 180px;
-        height: 135px;
-        top: 26%;
-        right: 59%;
+        width: 146px;
+        height: 113px;
+        top: 27%;
+        right: 65%;
     }
 
 
@@ -1905,13 +1908,15 @@ body {
     }
 
     .submit-button {
-        width: 202px;
-        padding: 1% 12px 10px 51px;
+        width: 154px;
+        padding: 2% 12px 10px 24px;
         font-size: 15px;
     }
 
     .text-submit {
         font-size: 8px;
+        margin: 0 -10% 0 16%;
+        padding: 7px 6px;
     }
 
     .blok-button {
@@ -1926,9 +1931,9 @@ body {
     }
 
     .text {
-        height: 84px;
-        width: 199px;
-        margin-top: 20px;
+        height: 68px;
+        width: 181px;
+        margin-top: 31px;
     }
 
     .action {
@@ -1940,15 +1945,23 @@ body {
         margin-bottom: 7px;
     }
 
+    .circle-2 {
+        width: 24%;
+        height: 57%;
+        background: rgba(45, 39, 255, 1);
+        top: -7%;
+        left: -8%;
+    }
+
     .text-registration {
-        font-size: 7px;
-        line-height: 19px;
-        margin-left: -24%;
+        font-size: 5px;
+        line-height: 11px;
+        margin-left: -28%;
         padding-bottom: 20px;
     }
 
     .info-telegram {
-        padding: 0 0 0 35px;
+        padding: 0 0 0 10px;
         height: 220px;
     }
 
@@ -1969,20 +1982,20 @@ body {
     }
 
     .tel {
-        width: 27px;
+        width: 26px;
         top: 7px;
         right: 6px;
-        height: 27px;
+        height: 25px;
     }
 
     .photo1, .photo2 {
-        width: 181px;
+        width: 168px;
     }
 
     .photo {
-        width: 170px;
-        height: 29px;
-        right: 65%;
+        width: 151px;
+        height: 19px;
+        right: 69%;
     }
 
     .well {
@@ -1991,14 +2004,15 @@ body {
     }
 
     .well .submit-button {
-        width: 136px;
-        font-size: 12px;
-        height: 1%;
+        width: 81px;
+        font-size: 8px;
+        padding: 1px 7px 0 11px;
+        height: 31px;
     }
 
-    .arrow-icon {
-        width: 20px;
-        height: 30px;
+    .well-text .arrow-icon {
+        width: 22px;
+        height: 32px;
     }
 
     .container2 {
@@ -2006,7 +2020,7 @@ body {
     }
 
     .well-text p {
-        padding: 16px 0 0 22px;
+        padding: 7px 0 0 22px;
         font-size: 10px;
     }
 
@@ -2015,149 +2029,167 @@ body {
     }
 
     .mini-course h1 {
-        font-size: 24px;
-        line-height: 26px;
+        font-size: 15px;
+        line-height: 15px;
         padding: 0;
-        margin-left: -60%;
+        margin-left: -62%;
     }
 
     .mini-course p {
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 10px;
+        line-height: 13px;
         padding: 0;
-        margin-left: -60%;
+        margin-left: -62%;
     }
 
     .video-container {
-        max-width: 388px;
+        max-width: 325px;
         margin-left: 4%;
         margin-top: 2%;
     }
 
+    .leddd::before, .leddd::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(41px);
+        opacity: 1;
+    }
+
     .leddd::before {
-        width: 22%;
-        height: 38%;
+        width: 17%;
+        height: 20%;
+        top: 0;
+        right: -6%;
     }
 
     .leddd::after {
-        width: 22%;
-        height: 38%;
+        width: 17%;
+        height: 20%;
+        top: 0;
+        left: -7%;
     }
 
     .text-diagram h1 {
-        line-height: 15px;
-        font-size: 14px;
+        line-height: 13px;
+        font-size: 10px;
         padding: 0 0 17px 0;
     }
 
     .text-diagram p {
-        font-size: 15px;
+        font-size: 10px;
         padding: 0;
     }
 
     .percent1 {
-        width: 64px;
-        right: 61%;
-        top: 49px;
+        width: 57px;
+        right: 70%;
+        top: 39px;
     }
 
     .screen_1 {
-        padding-right: 60%;
+        padding-right: 65%;
         gap: 15px;
     }
 
     .screen3, .screen4 {
-        width: 220px;
-        height: 130px;
+        width: 181px;
+        height: 104px;
     }
 
     .percent2 {
-        width: 76px;
-        bottom: 193px;
+        width: 63px;
+        bottom: 207px;
     }
 
     .submit-button1 {
-        margin-left: 8%;
+        margin-left: 10%;
+        width: 170px;
+        font-size: 10px;
     }
 
     .video-tutorials h1 {
-        font-size: 1rem;
-        padding-right: 59%;
+        font-size: 13px;
+        padding-right: 66%;
     }
 
     .info-video {
         display: flex;
-        padding: 3% 0 0 0;
-        gap: 12px;
+        padding: 3% 0 0 10px;
+        gap: 9px;
+        line-height: 47%;
     }
 
     .video1 {
-        width: 148px;
+        width: 126px;
         font-size: 8px;
     }
 
     .gradiennt-yy {
-        margin-left: 24px;
-        width: 76px;
-        height: 76px;
+        margin-left: 36px;
+        width: 55px;
+        height: 57px;
     }
 
     .hands {
-        position: absolute;
-        top: 23px;
-        right: 7px;
-        width: 61px;
+        top: 16px;
+        right: 4px;
+        width: 48px;
     }
 
     .text-video1 h2 {
         text-align: center;
         padding: 6px;
+        font-size: 8px;
     }
 
     .text-video1 p {
-        padding: 4px;
+        padding: 0;
+        max-width: 121px;
+        font-size: 6px;
     }
 
     .gradiennt {
-        margin-left: 41px;
-        width: 74px;
-        height: 76px;
+        margin-left: 26px;
+        width: 57px;
+        height: 57px;
     }
 
     .people {
-        position: absolute;
-        right: 12px;
-        top: 18px;
-        width: 52px;
+        right: 8px;
+        top: 14px;
+        width: 42px;
     }
 
     .hand {
-        width: 50px;
-        position: absolute;
-        top: 15px;
-        right: 12px;
+        width: 40px;
+        top: 11px;
+        right: 8px;
     }
 
     .submit-button2 {
-        margin-left: 5%;
+        margin-left: 10%;
+        font-size: 10px;
+        padding: 6px 13px 6px 17px;
+        width: 175px;
     }
 
     .info-shopping h1 {
         font-size: 16px;
-        padding-right: 61%;
+        padding-right: 66%;
         padding-bottom: 40px;
     }
 
     .info-fist {
-        max-width: 207px;
+        max-width: 181px;
         width: 100%;
-        height: 115px;
-        padding: 9px;
+        height: 112px;
+        padding: 6px;
     }
 
     .fist {
-        margin-right: 60%;
-        gap: 36px;
+        margin-right: 65%;
+        gap: 15px;
         margin-bottom: 17%;
     }
 
@@ -2172,8 +2204,8 @@ body {
 
     .information-man h1 {
         font-size: 17px;
-        line-height: 26px;
-        margin-right: 59%;
+        line-height: 22px;
+        margin-right: 66%;
     }
 
     .man3 {
@@ -2209,17 +2241,43 @@ body {
 
     .icon-social {
         gap: 4%;
+        padding: 5% 14px;
+    }
+
+    .gradienttt {
+        width: 98px;
+        height: 94px;
+        box-shadow: 0 0 36px 3px rgba(45, 39, 255, 1);
+    }
+
+    .icon-telega img {
+        width: 67px;
+        top: 22px;
+        left: 10px;
+    }
+
+    .icon-dzen img {
+        width: 67px;
+        top: 14px;
+        right: 16px;
+    }
+
+    .vk img {
+        width: 77px;
+        right: 9px;
+        top: 26px;
     }
 
     .social-networks p {
-        font-size: 14px;
+        font-size: 12px;
+        width: 35%;
         padding-left: 4%;
     }
 
     .info-number {
         font-size: 15px;
         line-height: 19px;
-        width: 256px;
+        width: 186px;
     }
 
     .tt {
@@ -2237,16 +2295,17 @@ body {
     }
 
     .footer .well-text p {
-        padding: 4px 0 0 26px;
-        font-size: 11px;
+        padding: 4px 0 0 0;
+        font-size: 9px;
         width: 125px;
-        line-height: 15px;
+        line-height: 11px;
     }
 
     .footer .well .submit-button {
-        width: 166px;
-        height: 31px;
-        font-size: 13px;
+        width: 118px;
+        height: 30px;
+        padding: 1% 0 5px 18px;
+        font-size: 9px;
     }
 
     .info-policy {
@@ -2279,7 +2338,7 @@ body {
         width: 15%;
         height: 24%;
         bottom: -2%;
-        right: 35%;
+        right: 59%;
     }
 
     .led44::after {
@@ -2333,21 +2392,21 @@ body {
     }
 
     .info-man {
-        margin-right: 51%;
+        margin-right: 58%;
         gap: 9px
     }
 
     .man2 {
-        width: 117px;
-        right: 31px;
+        width: 99px;
+        right: 9px;
     }
 
     .overlay-text {
-        font-size: 9px;
+        font-size: 6px;
     }
 
     .play-button {
-        width: 45px;
-        height: 45px;
+        width: 31px;
+        height: 34px;
     }
 }
