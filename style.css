@@ -1,0 +1,2353 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+
+}
+
+:where(ul, ol):where([class]) {
+    padding-left: 0;
+}
+
+body,
+:where(blockquote, figure):where([class]) {
+    margin: 0;
+}
+
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
+    margin-block: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl {
+    margin: 0;
+}
+
+:where(dd[class]) {
+    margin-left: 0;
+}
+
+:where(fieldset[class]) {
+    margin-left: 0;
+    padding: 0;
+    border: none;
+}
+
+:where(ul[class]) {
+    list-style: none;
+}
+
+:where(address[class]) {
+    font-style: normal;
+}
+
+p {
+    --paragraphMarginBottom: 15px;
+    margin-block: 0;
+}
+
+p:where(:not([class]):not(:last-child)) {
+    margin-bottom: var(--paragraphMarginBottom);
+}
+
+img,
+video {
+    display: block;
+    height: auto;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+html {
+    height: 100%;
+    scrollbar-gutter: stable;
+}
+
+html,
+:has(:target) {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%;
+    line-height: 1.5;
+    background: rgba(0, 0, 0, 1);
+    max-width: 1728px;
+    align-content: center;
+}
+
+a:where([class]) {
+    display: inline-flex;
+}
+
+button,
+label {
+    cursor: pointer;
+}
+
+:where([fill]:not(
+  [fill="none"],
+  [fill^="url"]
+)) {
+    fill: currentColor;
+}
+
+:where([stroke]:not(
+  [stroke="none"],
+  [stroke^="url"]
+)) {
+    stroke: currentColor;
+}
+
+svg * {
+    transition-property: fill, stroke;
+}
+
+:where(table) {
+    border-collapse: collapse;
+    border-color: currentColor;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+body {
+    width: 1200px;
+}
+
+.submit-button:hover,
+.submit-button1:hover,
+.submit-button2:hover,
+.gradienttt:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.gradient-word {
+    background: linear-gradient(90deg, rgba(255, 10, 108, 1), rgba(45, 39, 255, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.post {
+    display: flex;
+    margin: 14px 0 0 50px;
+    gap: 20px;
+}
+
+.gradient {
+    position: relative;
+    width: 60px;
+    height: 66px;
+    background: linear-gradient(to bottom, rgba(255, 10, 108, 1) 20%, rgba(45, 39, 255, 1) 80%);
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.photo__img {
+    width: 60px;
+}
+
+.post p{
+    color: white;
+    font-size: 18px;
+    line-height: 20px;
+    align-content: center;
+}
+
+.information {
+    position: relative;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 30px 0 50px 40px;
+    gap: 20px;
+    position: relative;
+}
+
+.background-circles {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5; /* Чтобы контент был поверх кругов */
+}
+
+.background-circles::before,
+.background-circles::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px); /* Размытие границ */
+    opacity: 0.7; /* Прозрачность */
+}
+
+/* Первый круг */
+.background-circles::before {
+    width: 543px;
+    height: 327px;
+    background: rgba(45, 39, 255, 1);
+    top: 20%;
+    right: 6%;
+}
+
+/* Второй круг */
+.background-circles::after {
+    width: 400px;
+    height: 400px;
+    background: rgba(179, 21, 162, 1);
+    bottom: 67%;
+    right: -13%;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.5;
+}
+
+.circle-1 {
+    width: 325px;
+    height: 337px;
+    background: rgba(45, 39, 255, 1);
+    bottom: -23%;
+    left: -17%;
+}
+
+.rings {
+    position: absolute;
+    opacity: 10%;
+    z-index: -2;
+    top: 51px;
+    left: 685px;
+    width: 300px;
+}
+
+.rings1 {
+    position: absolute;
+    opacity: 10%;
+    z-index: -1;
+    transform: scaleX(-1);
+    bottom: -232px;
+    width: 329px;
+    left: -87px;
+}
+
+
+.text-info h1{
+    line-height: 55px;
+    font-size: 47px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.info-text h2{
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 300;
+}
+
+.photo-man {
+    position: absolute;
+    z-index: -1;
+    width: 273px;
+    left: 68%;
+    top: 8%;
+    mask-image: linear-gradient(to bottom, black 85%, transparent 95%);
+}
+
+.lessons {
+    color: white;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.action {
+    display: flex;
+    gap: 90px;
+    padding: 0 0 0 18%;
+}
+
+.blok-button {
+    display: flex;
+    position: relative;
+    height: 77px;
+    width: 120%;
+    transform: rotate(-6deg);
+    margin: 0 0 2% 0;
+    z-index: 1;
+}
+
+.plane {
+    position: absolute;
+    width: 100px;
+    z-index: 1;
+    left: -51px;
+    top: 27px;
+}
+
+.submit-button {
+    background: linear-gradient(to left, rgba(255, 10, 108, 1) 20%, rgba(45, 39, 255, 1) 80%);
+    text-decoration: none;
+    width: 300px;
+    color: white;
+    padding: 1% 13px 13px 80px;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 9px 1px rgba(255, 255, 255, 1);
+    font-size: 21px;
+}
+
+.text-submit {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 4% 0 21%;
+    padding: 13px 22px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.4);
+    font-size: 17px;
+}
+
+.text {
+    height: 118px;
+    margin-top: 70px;
+    padding: 9px 0 0 15px;
+    border-left: 2px solid white;
+}
+
+.container2 {
+    padding-top: 11%;
+}
+
+.background-circles1 {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: -5;
+}
+
+.background-circles1::before,
+.background-circles1::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.7;
+}
+
+/* Первый круг */
+.background-circles1::before {
+    width: 49%;
+    height: 13%;
+    background: rgba(45, 39, 255, 1);
+    top: -18%;
+    right: 19%;
+}
+
+/* Второй круг */
+.background-circles1::after {
+    width: 31%;
+    height: 15%;
+    background: rgba(179, 21, 162, 1);
+    top: -18%;
+    right: 68%;
+}
+
+.circle1 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.5;
+}
+
+.circle-2 {
+    width: 24%;
+    height: 57%;
+    background: rgba(45, 39, 255, 1);
+    top: 34%;
+    left: -8%;
+}
+
+.text-registration {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    padding: 0 0 50px 0;
+}
+
+.screen {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-telegram {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 0 0 0 103px;
+    height: 347px;
+}
+
+.info-telegram p {
+    font-size: 25px;
+    line-height: 28px;
+}
+
+.telegram {
+    background: rgba(33, 33, 33, 1);
+    padding: 17px;
+    border: 1px solid white;
+    border-radius: 15px;
+    display: flex;
+    gap: 37px;
+    margin-bottom: 175px;
+}
+
+.telegram p {
+    font-size: 18px;
+    padding: 0;
+}
+
+.tel {
+    width: 45px;
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    height: 39px;
+}
+
+.gradientt {
+    position: relative;
+    width: 66px;
+    height: 66px;
+    background: linear-gradient(to bottom, rgba(255, 10, 108, 1) 20%, rgba(45, 39, 255, 1) 80%);
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 1);
+}
+
+
+.photo{
+    position: relative;
+    width: 450px;
+    height: 214px;
+    right: 85px;
+}
+
+.photo1 {
+    position: absolute;
+    width: 450px;
+    border-radius: 16px;
+    border: 1px solid white;
+}
+
+.photo2 {
+    position: absolute;
+    width: 450px;
+    bottom: -112px;
+    border-radius: 16px;
+    border: 1px solid white;
+    right: -40px;
+}
+
+.teleg {
+    position: absolute;
+    width: 122px;
+    right: 0;
+    bottom: 0;
+    transform: scaleX(-1);
+}
+
+.well .submit-button {
+    background: linear-gradient(to left, rgba(255, 10, 108, 1) 20%, rgba(45, 39, 255, 1) 80%);
+    text-decoration: none;
+    width: 219px;
+    color: white;
+    padding: 1% 13px 13px 24px;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 9px 1px rgba(255, 255, 255, 1);
+    font-size: 24px;
+}
+
+.well {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 132px;
+}
+
+.arrow-icon {
+    width: 49px;
+    transform: rotate(-90deg);
+    height: 65px;
+}
+
+.well-text {
+    margin-left: 40px;
+    display: flex;
+    padding: 0;
+}
+
+.well-text p{
+    color: rgba(255, 255, 255, 1);
+    padding: 23px 0 0 52px;
+}
+
+.mini-course {
+    color: white;
+}
+
+.leddd {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: -5;
+}
+
+.leddd::before,
+.leddd::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.7;
+}
+
+/* Первый круг */
+.leddd::before {
+    width: 21%;
+    height: 60%;
+    background: rgba(179, 21, 162, 1);
+    top: 3%;
+    right: -6%;
+    z-index: -2;
+}
+
+/* Второй круг */
+.leddd::after {
+    width: 25%;
+    height: 60%;
+    background: rgba(179, 21, 162, 1);
+    top: 3%;
+    left: -6%;
+}
+
+
+.mini-course h1 {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+    line-height: 45px;
+    padding: 0 0 18px 0;
+}
+
+.mini-course p {
+    font-size: 18px;
+    text-align: center;
+    line-height: 24px;
+    padding: 0 0 20px 0;
+}
+
+.video {
+    padding: 0 0 50px 0;
+}
+
+/* Стили для .video */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Ограничим ширину видео */
+    aspect-ratio: 16 / 9; /* Соотношение сторон видео */
+    margin: 0 auto; /* Центрирование */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Подсветка, как у .submit-button */
+}
+
+.man2 {
+    position: absolute;
+    width: 247px;
+    right: 36px;
+    bottom: 4px;
+    mask-image: linear-gradient(to bottom, black 85%, transparent 95%);
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Видео заполняет контейнер */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Видео на заднем плане */
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
+    width: 80px; /* Размер по вашему усмотрению */
+    height: 80px;
+    transition: opacity 0.3s;
+}
+
+.play-button.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.leddd1 {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: -5;
+}
+
+.leddd1::before,
+.leddd1::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+/* Первый круг */
+.leddd1::before {
+    width: 57%;
+    height: 42%;
+    background: rgba(45, 39, 255, 1);
+    top: 29%;
+    right: -3%;
+}
+
+/* Второй круг */
+.leddd1::after {
+    width: 48%;
+    height: 47%;
+    background: rgba(179, 21, 162, 1);
+    top: 12%;
+    right: 27%;
+}
+
+.circle2 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+}
+
+.circle-3 {
+    width: 33%;
+    height: 59%;
+    background: rgba(45, 39, 255, 1);
+    top: -2%;
+    left: 9%;
+}
+
+.overlay-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 0 20px 20px;
+}
+
+.overlay-image {
+    width: 80px;
+    left: 41%;
+    top: 37%;
+    position: absolute;
+    height: auto;
+}
+
+.diagram {
+    position: relative;
+}
+
+.percent1 {
+    position: absolute;
+    width: 186px;
+    right: 64px;
+    top: 3px;
+    transform: rotate(350deg);
+}
+
+.percent2 {
+    position: absolute;
+    width: 200px;
+    bottom: 85px;
+    left: 0;
+    transform: rotate(8deg);
+    z-index: -1000;
+}
+
+.text-diagram h1 {
+    color: white;
+    font-weight: 400;
+    font-size: 37px;
+    line-height: 40px;
+    padding: 0 0 20px 35px;
+}
+
+.led4 {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: -5;
+}
+
+.led4::before,
+.led4::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+/* Первый круг */
+.led4::before {
+    width: 30%;
+    height: 23%;
+    background: rgba(45, 39, 255, 1);
+    top: 0;
+    left: -4%;
+}
+
+/* Второй круг */
+.led4::after {
+    width: 40%;
+    height: 28%;
+    background: rgba(179, 21, 162, 1);
+    top: -8%;
+    left: 10%;
+}
+
+.text-diagram {
+    padding: 0 0 30px 40px;
+}
+
+.text-diagram p {
+    color: white;
+    opacity: 50%;
+    font-size: 25px;
+    font-weight: 200;
+    padding-left: 35px;
+}
+
+.screen_1 {
+    display: flex;
+    gap: 37px;
+    padding: 0 0 60px 0;
+    justify-content: center;
+}
+
+.screen3 {
+    width: 566px;
+    border-radius: 15px;
+}
+
+.screen4 {
+    width: 566px;
+    border-radius: 15px;
+}
+
+.submit-button1 {
+    background: linear-gradient(to left, rgba(255, 10, 108, 1) 20%, rgba(45, 39, 255, 1) 80%);
+    text-decoration: none;
+    width: 300px;
+    color: white;
+    padding: 1% 13px 13px 24px;
+    margin-left: 39%;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 0 9px 1px rgba(255, 255, 255, 1);
+    font-size: 21px;
+    margin-bottom: 12%;
+}
+
+.led44 {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: -5;
+}
+
+.led44::before,
+.led44::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+}
+
+/* Первый круг */
+.led44::before {
+    width: 17%;
+    height: 39%;
+    background: rgba(45, 39, 255, 1);
+    bottom: -3%;
+    right: -8%;
+}
+
+/* Второй круг */
+.led44::after {
+    width: 37%;
+    height: 24%;
+    background: rgba(179, 21, 162, 1);
+    bottom: -1%;
+    right: 7%;
+}
+
+.video-tutorials h1 {
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    position: relative;
+    font-weight: 500;
+}
+
+.info-video {
+    display: flex;
+    padding: 3% 0 0 8%;
+    gap: 37px;
+    position: relative;
+}
+
+/*.figure1, .figure2 {*/
+/*    position: absolute;*/
+/*    display: inline-block;*/
+/*    width: 300px;*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*    overflow: hidden;*/
+/*    margin: 10px;*/
+/*    z-index: -2;*/
+/*}*/
+
+/*!* Задаём фоновое изображение *!*/
+/*.figure1 {*/
+/*}*/
+
+/*.figure2 {*/
+/*}*/
+
+/*!* Размытие верхней границы *!*/
+/*.figure1::before, .figure2::before {*/
+/*    content: '';*/
+/*    top: 10%;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 50px; !* высота размытой полосы *!*/
+/*    background: inherit;*/
+/*    background-size: cover;*/
+/*    background-position: top;*/
+/*    filter: blur(10px);*/
+/*    z-index: -1;*/
+/*}*/
+
+/*!* Размытие нижней границы *!*/
+/*.figure1::after, .figure2::after {*/
+/*    content: '';*/
+/*    bottom: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 50px;*/
+/*    background: inherit;*/
+/*    background-size: cover;*/
+/*    background-position: bottom;*/
+/*    filter: blur(10px);*/
+/*    z-index: -1;*/
+/*}*/
+
+.gradiennt {
+    position: relative;
+    width: 126px;
+    height: 126px;
+    background: rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    display: flex;
+    margin-left: 74px;
+    align-items: flex-end;
+    box-shadow: 0 0 70px 10px rgba(255, 255, 255, 1);
+}
+
+.people {
+    position: absolute;
+    right: 17px;
+    top: 21px;
+    width: 96px;
+}
+
+.hand {
+    width: 86px;
+    position: absolute;
+    top: 19px;
+    right: 21px;
+}
+
+.hands {
+    position: absolute;
+    top: 35px;
+    right: 15px;
+    width: 96px;
+}
+
+.text-video1 {
+    background: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 0 white;
+    margin-top: 20px;
+}
+
+.text-video1 p{
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.text-video1 .yyy {
+    padding-bottom: 20px;
+}
+
+.text-video1 h2{
+    text-align: center;
+    padding: 20px;
+}
+
+.gradiennt-yy {
+    position: relative;
+    width: 126px;
+    height: 126px;
+    background: rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    display: flex;
+    margin-left: 95px;
+    align-items: flex-end;
+    box-shadow: 0 0 70px 10px rgba(255, 255, 255, 1);
+}
+
+.submit-button2 {
+    background: linear-gradient(to left, rgba(255, 10, 108, 1) 20%, rgba(45, 39, 255, 1) 80%);
+    text-decoration: none;
+    width: 342px;
+    color: white;
+    padding: 1% 13px 13px 24px;
+    margin-left: 36%;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 0 9px 1px rgba(255, 255, 255, 1);
+    font-size: 21px;
+    margin-top: 30px;
+    margin-bottom: 12%;
+}
+
+.info-shopping {
+    color: white;
+    margin-bottom: 110px;
+    position: relative;
+}
+
+.led5 {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: -5;
+}
+
+.led5::before{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(125px);
+}
+
+/* Первый круг */
+.led5::before {
+    width: 43%;
+    height: 33%;
+    background: rgba(179, 21, 162, 1);
+    top: -21%;
+    left: -18%;
+}
+
+.video1 {
+    color: white;
+}
+
+.info-shopping h1{
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 145px;
+    font-weight: 500;
+}
+
+.fist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 67px;
+    justify-content: center;
+    margin-bottom: 18%;
+    max-width: 100%;
+}
+
+.infinity1 {
+    position: absolute;
+    opacity: 38%;
+    z-index: -2;
+    top: 1%;
+    width: 17%;
+    transform: rotate(-21deg);
+    left: -2%;
+}
+
+.infinity2 {
+    position: absolute;
+    opacity: 37%;
+    z-index: -2;
+    width: 17%;
+    transform: rotate(109deg);
+    bottom: -19%;
+    left: 25%;
+}
+
+.infinity3 {
+    position: absolute;
+    opacity: 20%;
+    z-index: -2;
+    top: 51%;
+    width: 18%;
+    transform: rotate(75deg);
+}
+
+.info-fist {
+    max-width: 478px;
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    position: relative;
+    background: black;
+    box-shadow: 0 0 10px 0 rgba(179, 21, 162, 0.9)
+}
+
+.info-fist h1 {
+    position: absolute;
+    left: -18px;
+    font-weight: 800;
+    top: -59px;
+    font-size: 66px;
+}
+
+.info-shopping p{
+    font-size: 24px;
+    display: flex;
+    text-align: left;
+}
+
+.information-man {
+    color: white;
+}
+
+.info-man {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 13px;
+    position: relative;
+}
+
+.oval1 {
+    position: absolute;
+    z-index: -4;
+    width: 22%;
+    top: -33%;
+    transform: rotate(130deg);
+    right: 1%;
+    opacity: 46%;
+}
+
+.oval2 {
+    position: absolute;
+    opacity: 37%;
+    z-index: -6;
+    left: -9%;
+    top: 23%;
+    transform: rotate(42deg);
+    width: 27%;
+}
+
+.oval3 {
+    position: absolute;
+    z-index: -6;
+    opacity: 32%;
+    bottom: -61%;
+    right: 1%;
+    transform: rotate(18deg);
+    width: 24%;
+}
+
+.led6 {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: -5;
+}
+
+.led6::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(46px);
+}
+
+.led6::after {
+    width: 34%;
+    height: 44%;
+    background: rgba(179, 21, 162, 1);
+    top: 8%;
+    left: 9%;
+}
+
+.information-man h1 {
+    font-weight: 500;
+    text-align: center;
+    font-size: 52px;
+    line-height: 52px;
+    padding-bottom: 8px;
+}
+
+.man3 {
+    width: 330px;
+    mask-image: linear-gradient(to bottom, black 74%, transparent 90%)
+}
+
+.info-man3 {
+    padding: 50px 0 0 60px;
+}
+
+.info-man3 h2{
+    padding-bottom: 17px;
+    font-size: 30px;
+}
+
+.info-man3 li{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.led7 {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: -5;
+}
+
+.led7::before,
+.led7::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(126px);
+}
+
+/* Первый круг */
+.led7::before {
+    width: 25%;
+    height: 64%;
+    background: rgba(45, 39, 255, 1);
+    top: -14%;
+    right: -14%;
+}
+
+/* Второй круг */
+.led7::after {
+    width: 20%;
+    height: 31%;
+    background: rgba(179, 21, 162, 1);
+    top: 19%;
+    left: -3%;
+}
+
+.circle6 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(62px);
+}
+
+.circle-7 {
+    width: 62%;
+    height: 8%;
+    background: rgba(45, 39, 255, 1);
+    top: 17%;
+    left: -20%;
+}
+
+.info-social-networks {
+    color: white;
+    position: relative;
+}
+
+.info-social-networks h1 {
+    text-align: center;
+    font-weight: 300;
+    opacity: 15%;
+    font-size: 8rem;
+}
+
+.info-social-networks h2 {
+    position: absolute;
+    z-index: 1000;
+    text-align: center;
+    left: 27%;
+    font-weight: 400;
+    top: 44px;
+    font-size: 37px;
+    align-content: center;
+}
+
+.icon-social {
+    display: flex;
+    justify-content: center;
+    gap: 24%;
+    padding: 6% 0;
+}
+
+.gradienttt {
+    position: relative;
+    width: 126px;
+    height: 126px;
+    background: rgba(45, 39, 255, 1);
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 0 70px 10px rgba(45, 39, 255, 1);
+
+}
+
+.icon-telega img{
+    position: absolute;
+    width: 83px;
+    top: 24px;
+    left: 16px;
+}
+
+.icon-dzen img{
+    position: absolute;
+    width: 75px;
+    top: 24px;
+    right: 24px;
+}
+
+.vk img{
+    position: absolute;
+    width: 86px;
+    right: 19px;
+    top: 38px;
+}
+
+.social-networks p{
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    opacity: 63%;
+    padding-bottom: 2%;
+    border-bottom: 2px solid white;
+}
+
+.container {
+    padding-bottom: 2%;
+}
+
+.footer {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px 0 60px;
+    height: 240px;
+}
+
+.led8 {
+    width: 100%;
+    position: absolute;
+    height: 27%;
+    z-index: -5;
+}
+
+.led8::before,
+.led8::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(93px);
+}
+
+/* Первый круг */
+.led8::before {
+    width: 25%;
+    height: 73%;
+    background: rgba(45, 39, 255, 1);
+    top: 35%;
+    right: -4%;
+}
+
+/* Второй круг */
+.led8::after {
+    width: 29%;
+    height: 64%;
+    background: rgba(179, 21, 162, 1);
+    top: 38%;
+    left: -17%;
+}
+
+.info-bank{
+    line-height: 1px;
+    opacity: 80%;
+    padding-top: 11px;
+}
+
+.info-number {
+    position: relative;
+}
+
+.tt {
+    font-size: 25px;
+}
+
+.info-number {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.info-number p {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.info-number .well {
+    margin-top: 96px;
+}
+
+.footer .well .submit-button {
+    background: linear-gradient(to left, rgba(255, 10, 108, 1) 20%, rgba(45, 39, 255, 1) 80%);
+    text-decoration: none;
+    width: 278px;
+    color: white;
+    padding: 1% 0 12px 18px;
+    align-items: center;
+    text-align: center;
+    height: 67px;
+    border-radius: 10px;
+    box-shadow: 0 0 9px 1px rgba(255, 255, 255, 1);
+    font-size: 24px;
+}
+
+.footer .well-text p {
+    color: rgba(255, 255, 255, 1);
+    padding: 10px 0 0 52px;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+
+.info-policy {
+    line-height: 20px;
+    opacity: 80%;
+    text-align: center;
+}
+
+.info-policy p{
+    margin: 0;
+}
+
+
+@media screen and (max-width: 768px) {
+    .gradient {
+        position: relative;
+        width: 44px;
+        height: 44px;
+    }
+
+    .photo__img {
+        width: 43px;
+    }
+
+    .post p {
+        font-size: 11px;
+        line-height: 15px;
+    }
+
+    .text-info h1 {
+        line-height: 34px;
+        font-size: 32px;
+    }
+
+    .info-text h2 {
+        font-size: 22px;
+        line-height: 20px;
+    }
+
+    .photo-man {
+        width: 177px;
+        left: 47%;
+        top: 13%;
+    }
+
+    .rings {
+        top: 51px;
+        left: 444px;
+        width: 211px;
+    }
+
+    .rings1 {
+        bottom: -144px;
+        width: 184px;
+        left: -53px;
+    }
+
+    .background-circles::before {
+        width: 258px;
+        height: 187px;
+        top: 33%;
+        right: 36%;
+    }
+
+    .circle-1 {
+        width: 170px;
+        height: 224px;
+        background: rgba(45, 39, 255, 1);
+        bottom: -28%;
+        left: -9%;
+    }
+
+    .background-circles::after {
+        width: 137px;
+        height: 151px;
+        bottom: 67%;
+        right: 36%;
+    }
+
+    .lessons {
+        width: 27%;
+    }
+
+    .text {
+        height: 84px;
+        width: 199px;
+    }
+
+    .text p {
+        font-size: 11px;
+        margin-bottom: 8px;
+    }
+
+    .text-registration {
+        font-size: 11px;
+        line-height: 24px;
+        padding: 0 440px 50px 0;
+    }
+
+    .info-telegram {
+        padding: 0 0 0 35px;
+        height: 220px;
+    }
+
+    .info-telegram p {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .telegram {
+        padding: 4px;
+        width: 85%;
+        gap: 23px;
+    }
+
+    .gradientt {
+        width: 64px;
+        height: 50px;
+    }
+
+    .tel {
+        width: 37px;
+        top: 8px;
+        right: 10px;
+        height: 33px;
+    }
+
+    .photo1, .photo2 {
+        width: 262px;
+    }
+
+    .photo {
+        width: 252px;
+        height: 89px;
+        right: 44%;
+    }
+
+    .well {
+        justify-content: normal;
+        padding-left: 6%;
+    }
+
+    .well .submit-button {
+        width: 164px;
+        font-size: 17px;
+    }
+
+    .mini-course h1 {
+        font-size: 24px;
+        line-height: 26px;
+        padding: 0 374px 18px 0;
+    }
+
+    .mini-course p {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 0 362px 20px 0;
+    }
+
+    .video-container {
+        max-width: 406px;
+        margin-left: 16%;
+    }
+
+    .leddd::before {
+        width: 22%;
+        height: 38%;
+    }
+
+    .leddd::after {
+        width: 22%;
+        height: 38%;
+    }
+
+    .text-diagram h1 {
+        line-height: 29px;
+        font-size: 22px;
+    }
+
+    .text-diagram p {
+        font-size: 20px;
+    }
+
+    .percent1 {
+        width: 113px;
+        right: 39%;
+        top: 38px;
+    }
+
+    .screen_1 {
+        padding-right: 35%;
+
+    }
+
+.screen3, .screen4 {
+    width: 323px;
+    height: 185px;
+}
+
+    .percent2 {
+        width: 140px;
+        bottom: 138px;
+    }
+
+    .submit-button1 {
+        margin-left: 18%;
+    }
+
+    .video-tutorials h1 {
+        font-size: 2rem;
+        padding-right: 35%;
+    }
+
+    .info-video {
+        display: flex;
+        padding: 3% 0 0 0;
+    }
+
+    .video1 {
+        width: 220px;
+        font-size: 10px;
+    }
+
+    .gradiennt-yy {
+        margin-left: 48px;
+    }
+
+    .gradiennt {
+        margin-left: 36px;
+    }
+
+    .submit-button2 {
+        margin-left: 15%;
+    }
+
+    .info-shopping h1 {
+        font-size: 28px;
+        padding-right: 33%;
+    }
+
+    .info-fist {
+        max-width: 295px;
+        width: 100%;
+        height: 172px;
+        padding: 20px;
+    }
+
+    .fist {
+        margin-right: 33%;
+    }
+
+    .info-fist h1 {
+        left: -7px;
+        top: -20px;
+    }
+
+    .info-shopping p {
+        font-size: 15px;
+    }
+
+    .information-man h1 {
+        font-size: 25px;
+        line-height: 35px;
+        margin-right: 32%;
+    }
+
+    .man3 {
+        width: 212px;
+        height: 382px;
+    }
+
+    .info-man3 {
+        padding: 24px 0 0 0;
+        margin-right: 20%;
+    }
+
+
+    .info-man3 li {
+        font-size: 13px;
+    }
+
+    .info-social-networks h1 {
+        margin-right: 35%;
+        font-size: 5rem;
+    }
+
+    .info-social-networks h2 {
+        left: 15%;
+        top: 25px;
+        font-size: 24px;
+    }
+
+    .icon-social {
+        display: flex;
+         justify-content: normal;
+        gap: 15%;
+        padding: 5% 0;
+    }
+
+    .social-networks p {
+         justify-content: normal;
+        font-size: 26px;
+        opacity: 63%;
+        padding-bottom: 2%;
+        padding-left: 6%;
+    }
+
+    .footer {
+        padding: 0;
+        justify-content: normal;
+    }
+
+    .info-number {
+        font-size: 21px;
+        line-height: 28px;
+    }
+
+    .tt {
+        font-size: 19px;
+    }
+
+.info-bank {
+    font-size: 13px;
+    padding-top: 11px;
+}
+
+    .footer .info-number .well {
+        margin-top: 96px;
+        width: 384px;
+    }
+
+    .footer .well-text p {
+        padding: 4px 0 0 26px;
+        font-size: 11px;
+        width: 125px;
+        line-height: 15px;
+    }
+
+    .footer .well .submit-button {
+        width: 278px;
+        height: 43px;
+        font-size: 12px;
+    }
+
+    .info-policy {
+        line-height: 20px;
+        font-size: 14px;
+    }
+
+    .background-circles1::before{
+        width: 70%;
+        height: 16%;
+        top: -17%;
+        right: -9%;
+    }
+
+    .led4::before {
+        width: 28%;
+        height: 13%;
+        top: 0;
+        left: -14%;
+    }
+
+    .led4::after {
+        width: 39%;
+        height: 13%;
+        top: -9%;
+        left: 4%;
+    }
+
+    .led44::before {
+        width: 15%;
+        height: 24%;
+        bottom: -2%;
+        right: 35%;
+    }
+
+    .led44::after {
+        width: 30%;
+        height: 11%;
+        background: rgba(179, 21, 162, 1);
+        bottom: -1%;
+        right: 50%;
+    }
+
+    .led5::before {
+        width: 33%;
+        height: 29%;
+        background: rgba(179, 21, 162, 1);
+        top: -13%;
+        left: -18%;
+    }
+
+    .infinity2 {
+        bottom: -25%;
+        left: 12%;
+    }
+
+    .infinity3 {
+        top: 43%;
+    }
+
+    .oval1 {
+        width: 16%;
+        top: -16%;
+        transform: rotate(137deg);
+        right: 20%;
+    }
+
+    .oval2 {
+        width: 23%;
+    }
+
+    .oval3 {
+        opacity: 32%;
+        bottom: -53%;
+        right: 20%;
+        transform: rotate(31deg);
+    }
+
+    .info-man {
+        margin-right: 21%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gradient {
+        width: 35px;
+        height: 35px;
+    }
+
+    .photo__img {
+        width: 35px;
+    }
+
+    .post p {
+        font-size: 9px;
+        line-height: 10px;
+    }
+
+    .text-info h1 {
+        line-height: 20px;
+        font-size: 19px;
+    }
+
+    .info-text h2 {
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .photo-man {
+        width: 108px;
+        left: 30%;
+        top: 13%;
+    }
+
+    .info {
+        padding: 28px 0 47px 14px;
+    }
+
+    .rings {
+        top: 51px;
+        left: 287px;
+        width: 116px;
+    }
+
+    .rings1 {
+        bottom: -77px;
+        width: 110px;
+        left: -38px;
+    }
+
+    .background-circles::before {
+        width: 180px;
+        height: 135px;
+        top: 26%;
+        right: 59%;
+    }
+
+
+    .background-circles::after {
+        width: 131px;
+        height: 151px;
+        bottom: 67%;
+        left: 28%;
+    }
+
+    .lessons {
+        width: 0;
+    }
+
+    .blok-action {
+        width: 42%;
+        padding-left: 11%;
+    }
+
+    .submit-button {
+        width: 202px;
+        padding: 1% 12px 10px 51px;
+        font-size: 15px;
+    }
+
+    .text-submit {
+        font-size: 8px;
+    }
+
+    .blok-button {
+        height: 59px;
+        width: 117%;
+    }
+
+    .plane {
+        width: 77px;
+        left: -41px;
+        top: 27px;
+    }
+
+    .text {
+        height: 84px;
+        width: 199px;
+        margin-top: 20px;
+    }
+
+    .action {
+        gap: 70px;
+    }
+
+    .text p {
+        font-size: 9px;
+        margin-bottom: 7px;
+    }
+
+    .text-registration {
+        font-size: 7px;
+        line-height: 19px;
+        margin-left: -24%;
+        padding-bottom: 20px;
+    }
+
+    .info-telegram {
+        padding: 0 0 0 35px;
+        height: 220px;
+    }
+
+    .info-telegram p {
+        font-size: 11px;
+        line-height: 10px;
+    }
+
+    .telegram {
+        padding: 3px;
+        width: 67%;
+        gap: 23px;
+    }
+
+    .gradientt {
+        width: 56px;
+        height: 40px;
+    }
+
+    .tel {
+        width: 27px;
+        top: 7px;
+        right: 6px;
+        height: 27px;
+    }
+
+    .photo1, .photo2 {
+        width: 181px;
+    }
+
+    .photo {
+        width: 170px;
+        height: 29px;
+        right: 65%;
+    }
+
+    .well {
+        justify-content: normal;
+        padding-left: 1%;
+    }
+
+    .well .submit-button {
+        width: 136px;
+        font-size: 12px;
+        height: 1%;
+    }
+
+    .arrow-icon {
+        width: 20px;
+        height: 30px;
+    }
+
+    .container2 {
+        padding-top: 4%;
+    }
+
+    .well-text p {
+        padding: 16px 0 0 22px;
+        font-size: 10px;
+    }
+
+    .well-text {
+        margin-left: 17px;
+    }
+
+    .mini-course h1 {
+        font-size: 24px;
+        line-height: 26px;
+        padding: 0;
+        margin-left: -60%;
+    }
+
+    .mini-course p {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 0;
+        margin-left: -60%;
+    }
+
+    .video-container {
+        max-width: 388px;
+        margin-left: 4%;
+        margin-top: 2%;
+    }
+
+    .leddd::before {
+        width: 22%;
+        height: 38%;
+    }
+
+    .leddd::after {
+        width: 22%;
+        height: 38%;
+    }
+
+    .text-diagram h1 {
+        line-height: 15px;
+        font-size: 14px;
+        padding: 0 0 17px 0;
+    }
+
+    .text-diagram p {
+        font-size: 15px;
+        padding: 0;
+    }
+
+    .percent1 {
+        width: 64px;
+        right: 61%;
+        top: 49px;
+    }
+
+    .screen_1 {
+        padding-right: 60%;
+        gap: 15px;
+    }
+
+    .screen3, .screen4 {
+        width: 220px;
+        height: 130px;
+    }
+
+    .percent2 {
+        width: 76px;
+        bottom: 193px;
+    }
+
+    .submit-button1 {
+        margin-left: 8%;
+    }
+
+    .video-tutorials h1 {
+        font-size: 1rem;
+        padding-right: 59%;
+    }
+
+    .info-video {
+        display: flex;
+        padding: 3% 0 0 0;
+        gap: 12px;
+    }
+
+    .video1 {
+        width: 148px;
+        font-size: 8px;
+    }
+
+    .gradiennt-yy {
+        margin-left: 24px;
+        width: 76px;
+        height: 76px;
+    }
+
+    .hands {
+        position: absolute;
+        top: 23px;
+        right: 7px;
+        width: 61px;
+    }
+
+    .text-video1 h2 {
+        text-align: center;
+        padding: 6px;
+    }
+
+    .text-video1 p {
+        padding: 4px;
+    }
+
+    .gradiennt {
+        margin-left: 41px;
+        width: 74px;
+        height: 76px;
+    }
+
+    .people {
+        position: absolute;
+        right: 12px;
+        top: 18px;
+        width: 52px;
+    }
+
+    .hand {
+        width: 50px;
+        position: absolute;
+        top: 15px;
+        right: 12px;
+    }
+
+    .submit-button2 {
+        margin-left: 5%;
+    }
+
+    .info-shopping h1 {
+        font-size: 16px;
+        padding-right: 61%;
+        padding-bottom: 40px;
+    }
+
+    .info-fist {
+        max-width: 207px;
+        width: 100%;
+        height: 115px;
+        padding: 9px;
+    }
+
+    .fist {
+        margin-right: 60%;
+        gap: 36px;
+        margin-bottom: 17%;
+    }
+
+    .info-fist h1 {
+        left: -3px;
+        top: -12px;
+    }
+
+    .info-shopping p {
+        font-size: 10px;
+    }
+
+    .information-man h1 {
+        font-size: 17px;
+        line-height: 26px;
+        margin-right: 59%;
+    }
+
+    .man3 {
+        width: 113px;
+        height: 202px;
+    }
+
+    .info-man3 {
+        padding: 13px 0 0 0;
+        margin-right: 14%;
+    }
+
+    .info-man3 li {
+        font-size: 8px;
+    }
+
+    .info-man3 h2 {
+        padding-bottom: 15px;
+        padding-left: 20px;
+        font-size: 20px;
+    }
+
+    .info-social-networks h1 {
+        margin-right: 60%;
+        font-size: 3rem;
+    }
+
+    .info-social-networks h2 {
+        left: 9%;
+        top: 15px;
+        font-size: 14px;
+    }
+
+    .icon-social {
+        gap: 4%;
+    }
+
+    .social-networks p {
+        font-size: 14px;
+        padding-left: 4%;
+    }
+
+    .info-number {
+        font-size: 15px;
+        line-height: 19px;
+        width: 256px;
+    }
+
+    .tt {
+        font-size: 14px;
+    }
+
+    .info-bank {
+        font-size: 9px;
+        margin: 0;
+    }
+
+    .footer .info-number .well {
+        margin-top: 96px;
+        width: 384px;
+    }
+
+    .footer .well-text p {
+        padding: 4px 0 0 26px;
+        font-size: 11px;
+        width: 125px;
+        line-height: 15px;
+    }
+
+    .footer .well .submit-button {
+        width: 166px;
+        height: 31px;
+        font-size: 13px;
+    }
+
+    .info-policy {
+        line-height: 14px;
+        font-size: 9px;
+    }
+
+    .background-circles1::before {
+        width: 70%;
+        height: 16%;
+        top: -17%;
+        right: -9%;
+    }
+
+    .led4::before {
+        width: 28%;
+        height: 13%;
+        top: 0;
+        left: -14%;
+    }
+
+    .led4::after {
+        width: 39%;
+        height: 13%;
+        top: -9%;
+        left: 4%;
+    }
+
+    .led44::before {
+        width: 15%;
+        height: 24%;
+        bottom: -2%;
+        right: 35%;
+    }
+
+    .led44::after {
+        width: 30%;
+        height: 11%;
+        background: rgba(179, 21, 162, 1);
+        bottom: -1%;
+        right: 50%;
+    }
+
+    .led5::before {
+        width: 33%;
+        height: 29%;
+        background: rgba(179, 21, 162, 1);
+        top: -13%;
+        left: -18%;
+    }
+
+    .infinity1 {
+        top: -8%;
+        width: 7%;
+    }
+
+    .infinity2 {
+        bottom: -24%;
+        left: 6%;
+        width: 9%;
+    }
+
+    .infinity3 {
+        top: 43%;
+        width: 10%;
+    }
+
+    .oval1 {
+        width: 15%;
+        top: -28%;
+        right: 18%;
+    }
+
+    .oval2 {
+        width: 22%;
+        left: -6%;
+    }
+
+    .oval3 {
+        opacity: 29%;
+        width: 19%;
+        bottom: -75%;
+        right: 15%;
+    }
+
+    .info-man {
+        margin-right: 51%;
+        gap: 9px
+    }
+
+    .man2 {
+        width: 117px;
+        right: 31px;
+    }
+
+    .overlay-text {
+        font-size: 9px;
+    }
+
+    .play-button {
+        width: 45px;
+        height: 45px;
+    }
+}
