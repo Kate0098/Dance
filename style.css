@@ -561,17 +561,17 @@ body {
 
 /* Первый круг */
 .leddd::before {
-    width: 21%;
+    width: 17%;
     height: 60%;
     background: rgba(179, 21, 162, 1);
     top: 3%;
-    right: -6%;
+    right: 22%;
     z-index: -2;
 }
 
 /* Второй круг */
 .leddd::after {
-    width: 25%;
+    width: 17%;
     height: 60%;
     background: rgba(179, 21, 162, 1);
     top: 3%;
@@ -1207,11 +1207,11 @@ body {
 
 /* Первый круг */
 .led7::before {
-    width: 25%;
+    width: 13%;
     height: 64%;
     background: rgba(45, 39, 255, 1);
-    top: -14%;
-    right: -14%;
+    top: 11%;
+    right: 23%;
 }
 
 /* Второй круг */
@@ -1341,11 +1341,11 @@ body {
 
 /* Первый круг */
 .led8::before {
-    width: 25%;
+    width: 18%;
     height: 73%;
     background: rgba(45, 39, 255, 1);
     top: 35%;
-    right: -4%;
+    right: 25%;
 }
 
 /* Второй круг */
