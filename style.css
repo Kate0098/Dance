@@ -1718,6 +1718,7 @@ body {
     .footer {
         padding: 0;
         justify-content: normal;
+        height: 185px;
     }
 
     .info-number {
@@ -1849,13 +1850,13 @@ body {
     }
 
     .text-info h1 {
-        line-height: 12px;
-        font-size: 11px;
+        line-height: 9px;
+        font-size: 7px;
     }
 
     .info-text h2 {
-        font-size: 10px;
-        line-height: 9px;
+        font-size: 6px;
+        line-height: 7px;
     }
 
     .photo-man {
@@ -1944,8 +1945,8 @@ body {
     }
 
     .text-registration {
-        font-size: 5px;
-        line-height: 10px;
+        font-size: 3px;
+        line-height: 7px;
         margin-left: -31%;
         padding-bottom: 20px;
     }
@@ -2064,8 +2065,8 @@ body {
     }
 
     .text-diagram h1 {
-        line-height: 12px;
-        font-size: 12px;
+        line-height: 9px;
+        font-size: 8px;
         padding: 0 0 17px 0;
     }
 
