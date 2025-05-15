@@ -598,16 +598,15 @@ body {
     padding: 0 0 50px 0;
 }
 
-/* Стили для .video */
 .video-container {
     position: relative;
     width: 100%;
-    max-width: 800px; /* Ограничим ширину видео */
-    aspect-ratio: 16 / 9; /* Соотношение сторон видео */
-    margin: 0 auto; /* Центрирование */
+    max-width: 90vw;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Подсветка, как у .submit-button */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .man2 {
@@ -621,7 +620,7 @@ body {
 .background-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Видео заполняет контейнер */
+    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
@@ -701,7 +700,7 @@ body {
 
 .overlay-text {
     color: white;
-    font-size: 16px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     font-weight: 500;
     padding: 0 0 20px 20px;
 }
@@ -2421,7 +2420,7 @@ body {
     }
 }
 
-@media screen and (max-width: 379px) {
+@media screen and (max-width: 400px) {
     .photo-man {
         width: 84px;
         left: 18%;
