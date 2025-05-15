@@ -2420,7 +2420,7 @@ body {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 395px) {
     .photo-man {
         width: 84px;
         left: 18%;
