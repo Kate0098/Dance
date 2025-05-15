@@ -2594,9 +2594,14 @@ body {
     }
 
     .footer .well-text p {
-        padding: 0 0 0 0;
+        padding: 0;
     }
 
-}
+    .info-policy {
+        line-height: 13px;
+        padding-left: 12px;
+    }
+
+    }
 
 
