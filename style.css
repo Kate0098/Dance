@@ -2421,7 +2421,7 @@ body {
     }
 }
 
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 370px) {
     .photo-man {
         width: 84px;
         left: 18%;
@@ -2507,6 +2507,7 @@ body {
     .gradiennt {
         box-shadow: 0 0 66px 0 rgba(255, 255, 255, 1);
     }
+
     .gradiennt-yy {
         box-shadow: 0 0 66px 0 rgba(255, 255, 255, 1);
     }
