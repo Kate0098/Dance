@@ -2475,8 +2475,8 @@ body {
 
     .percent1 {
         width: 43px;
-        right: 70%;
-        top: 42px;
+        right: 74%;
+        top: 51px;
     }
 
     .screen3, .screen4 {
@@ -2490,9 +2490,28 @@ body {
         margin-bottom: 4%;
     }
 
+    .mini-course h1 {
+        margin-left: -69%;
+    }
+
+    .mini-course p {
+        margin-left: -69%;
+    }
+
+    .well {
+        margin-bottom: 7%;
+    }
+
     .percent2 {
         width: 57px;
-        bottom: 41%;
+        bottom: 36%;
+    }
+    .submit-button1 {
+        margin-bottom: 8%;
+    }
+
+    .submit-button2 {
+        margin-bottom: 7%;
     }
 
     .video-tutorials h1 {
@@ -2500,7 +2519,8 @@ body {
     }
 
     .info-video {
-        gap: 6px
+        gap: 6px;
+        padding: 3% 0 0 5px;
     }
 
     .gradiennt {
@@ -2513,10 +2533,6 @@ body {
 
     .text-video1 .yyy {
         padding-bottom: 9px;
-    }
-
-    .info-video {
-        padding: 3% 0 0 0;
     }
 
     .video1 {
