@@ -2423,13 +2423,13 @@ body {
 @media screen and (max-width: 395px) {
     .photo-man {
         width: 84px;
-        left: 18%;
+        left: 23%;
         top: 13%;
     }
 
     .rings {
         top: 33px;
-        left: 12%;
+        left: 16%;
         width: 116px;
     }
 
