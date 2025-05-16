@@ -600,8 +600,8 @@ body {
 
 .video-container {
     position: relative;
-    width: 100%;
-    max-width: 90vw;
+    width: 65%;
+    max-width: 63%;
     aspect-ratio: 16 / 9;
     margin: 0 auto;
     border-radius: 10px;
@@ -1383,14 +1383,15 @@ body {
     justify-content: center;
 }
 
-.info-number .well {
-    margin-top: 96px;
+.footer .well {
+    margin-top: 32px;
+    margin-right: -23%;
 }
 
 .footer .well .submit-button {
     background: linear-gradient(to left, rgba(255, 10, 108, 1) 20%, rgba(45, 39, 255, 1) 80%);
     text-decoration: none;
-    width: 278px;
+    width: 285px;
     color: white;
     padding: 1% 0 12px 18px;
     align-items: center;
@@ -2287,8 +2288,8 @@ body {
     }
 
     .footer .info-number .well {
-        margin-top: 96px;
-        width: 384px;
+        margin-top: 28px;
+        width: 237px;
     }
 
     .footer .well-text p {
@@ -2300,9 +2301,9 @@ body {
 
     .footer .well .submit-button {
         width: 118px;
-        height: 30px;
-        padding: 1% 0 5px 18px;
-        font-size: 9px;
+        height: 25px;
+        padding: 1% 0 5px 4px;
+        font-size: 6px;
     }
 
     .info-policy {
@@ -2579,13 +2580,14 @@ body {
     }
 
     .footer .info-number .well {
-        margin-left: -31%;
+        margin-left: -20%;
     }
 
     .footer .well .submit-button {
         width: 98px;
         height: 23px;
         padding: 1% 0 4px 3px;
+        font-size: 7px;
     }
 
     .arrow-icon {
@@ -2595,11 +2597,20 @@ body {
 
     .footer .well-text p {
         padding: 0;
+        font-size: 7px;
+        width: 125px;
+        margin-right: 22%;
+        line-height: 9px;
     }
 
     .info-policy {
         line-height: 13px;
         padding-left: 12px;
+    }
+
+    .footer .info-number .well {
+        margin-top: 45px;
+        width: 236px;
     }
 
     }
