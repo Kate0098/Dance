@@ -1,42 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
     const video = document.querySelector('.background-video');
     const playButton = document.querySelector('.play-button');
+    const videoContainer = document.querySelector('.video-container');
 
-    // Принудительная остановка видео (даже если браузер пытается его запустить)
+    // Ensure video is hidden and paused initially
+    video.style.display = 'none';
     video.pause();
     video.currentTime = 0;
 
-    // Обработчик клика
+    // Prevent any automatic playback or loading
+    video.setAttribute('playsinline', '');
+    video.removeAttribute('autoplay');
+    video.preload = 'none';
+
+    // Handle play button click
     playButton.addEventListener('click', () => {
-        video.classList.add('playing');
+        // Show and play the video
+        video.style.display = 'block';
+        videoContainer.classList.add('playing');
         playButton.classList.add('hidden');
 
-        // Попытка воспроизведения с обработкой ошибок
+        // Load video if not already loaded
+        if (video.preload === 'none') {
+            video.preload = 'auto';
+            video.load();
+        }
+
+        // Attempt to play the video
         const playPromise = video.play();
 
         if (playPromise !== undefined) {
             playPromise
                 .then(() => {
-                    // Видео успешно запущено
+                    // Video started playing
                 })
                 .catch(error => {
-                    // Показываем кнопку снова при ошибке
+                    // Revert UI if playback fails
+                    video.style.display = 'none';
+                    videoContainer.classList.remove('playing');
                     playButton.classList.remove('hidden');
-                    console.error("Ошибка воспроизведения:", error);
+                    console.error('Playback error:', error);
                 });
         }
     });
 
-    // Блокировка автовоспроизведения через observer
-    const observer = new MutationObserver(() => {
-        if (video.playing) {
+    // Block unintended playback
+    video.addEventListener('play', (event) => {
+        if (!videoContainer.classList.contains('playing')) {
             video.pause();
             video.currentTime = 0;
+            video.style.display = 'none';
         }
     });
 
-    observer.observe(video, {
-        attributes: true,
-        attributeFilter: ['autoplay', 'muted']
+    // Pause video and reset UI when page is hidden
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && videoContainer.classList.contains('playing')) {
+            video.pause();
+            video.style.display = 'none';
+            videoContainer.classList.remove('playing');
+            playButton.classList.remove('hidden');
+        }
     });
 });
