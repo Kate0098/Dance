@@ -607,6 +607,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    background-image: url('./img/video-placeholder.jpg');
 }
 
 .man2 {

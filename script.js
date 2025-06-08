@@ -1,65 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const video = document.querySelector('.background-video');
     const playButton = document.querySelector('.play-button');
-    const videoContainer = document.querySelector('.video-container');
+    const video = document.querySelector('.background-video');
 
-    // Ensure video is hidden and paused initially
-    video.style.display = 'none';
-    video.pause();
-    video.currentTime = 0;
+    if (!playButton) {
+        console.error('Play button not found');
+        return;
+    }
 
-    // Prevent any automatic playback or loading
-    video.setAttribute('playsinline', '');
-    video.removeAttribute('autoplay');
-    video.preload = 'none';
+    let videoUrl = '';
+    if (video) {
+        const source = video.querySelector('source');
+        videoUrl = source ? source.getAttribute('src') : '';
+    } else {
+        console.warn('Video element not found, using fallback URL');
+        videoUrl = 'https://kinescope.io/vPd3kch2CHUEozKLKqs31R'; // Запасной URL
+    }
 
-    // Handle play button click
     playButton.addEventListener('click', () => {
-        // Show and play the video
-        video.style.display = 'block';
-        videoContainer.classList.add('playing');
-        playButton.classList.add('hidden');
-
-        // Load video if not already loaded
-        if (video.preload === 'none') {
-            video.preload = 'auto';
-            video.load();
-        }
-
-        // Attempt to play the video
-        const playPromise = video.play();
-
-        if (playPromise !== undefined) {
-            playPromise
-                .then(() => {
-                    // Video started playing
-                })
-                .catch(error => {
-                    // Revert UI if playback fails
-                    video.style.display = 'none';
-                    videoContainer.classList.remove('playing');
-                    playButton.classList.remove('hidden');
-                    console.error('Playback error:', error);
+        if (videoUrl) {
+            window.open(videoUrl, '_blank');
+            // Отправляем событие в Google Analytics, если gtag доступен
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    'event_category': 'Video',
+                    'event_label': 'Play Button Click'
                 });
-        }
-    });
-
-    // Block unintended playback
-    video.addEventListener('play', (event) => {
-        if (!videoContainer.classList.contains('playing')) {
-            video.pause();
-            video.currentTime = 0;
-            video.style.display = 'none';
-        }
-    });
-
-    // Pause video and reset UI when page is hidden
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden && videoContainer.classList.contains('playing')) {
-            video.pause();
-            video.style.display = 'none';
-            videoContainer.classList.remove('playing');
-            playButton.classList.remove('hidden');
+            }
+        } else {
+            console.error('Video URL is not defined');
         }
     });
 });
