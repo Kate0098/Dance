@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('Video element not found, using fallback URL');
         videoUrl = 'https://kinescope.io/vPd3kch2CHUEozKLKqs31R'; // Запасной URL
     }
-
     playButton.addEventListener('click', () => {
         if (videoUrl) {
             window.open(videoUrl, '_blank');
